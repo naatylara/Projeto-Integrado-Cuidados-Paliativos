@@ -1,0 +1,20 @@
+Projeto Integrado - Cuidados Paliativos
+Faculdade Positivo - Londrina 
+
+Integrantes: 
+Bruno Fujisão 
+Caio Alves Galassi
+Lucas Kenji Skiba 
+Nátaly Lara Moraes da Silva
+
+Objetivo do Projeto
+
+O objetivo do Projeto Integrado - Cuidados Paliativos 
+
+é desenvolver um site de inicio, informativo e acessível, em parceria com profissionais da 
+área de enfermagem, para orientar pacientes e seus familiares sobre cuidados paliativos. 
+O site terá como principal função fornecer informações claras e práticas que ajudem os usuários
+a identificar quando é necessário buscar atendimento médico, especialmente em casos de agravamento
+da condição do paciente. O projeto visa contribuir para a melhoria da qualidade de vida e o bem-estar 
+dos pacientes em cuidados paliativos, oferecendo apoio a eles e seus cuidadores na tomada de decisões 
+sobre a saúde.
