@@ -1,14 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Cuidados Paliativos</title>
-    
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuidados Paliativos</title>
+  <!-- Link para o Bootstrap -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    .navbar {
+      background-color: #007bff;
+    }
+    .navbar a {
+      color: white !important;
+    }
+    .banner {
+      background-color: #007bff;
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .post {
+      margin-bottom: 30px;
+    }
+    .post-title {
+      color: #007bff;
+    }
+    .post-content {
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    
+
+  <!-- Navegação -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Cuidados Paliativos</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Artigos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner -->
+  <div class="banner">
+    <h1>Cuidados Paliativos</h1>
+    <p>Entenda como os cuidados paliativos podem ajudar pacientes com doenças graves e crônicas.</p>
+  </div>
+
+  <!-- Seção de Postagens -->
+  <div class="container my-5">
+    <div class="row">
+      <!-- Post 1 -->
+      <div class="col-md-6 post">
+        <div class="card">
+          <img src="img/doctor-checking-blood-pressure-male-patient.jpg" class="card-img-top img-fluid" alt="Imagem de cuidados paliativos">
+          <div class="card-body">
+            <h5 class="card-title post-title">O que são Cuidados Paliativos?</h5>
+            <p class="card-text post-content">Cuidados paliativos são cuidados médicos especializados para pacientes com doenças graves, oferecendo alívio da dor e outros sintomas. Saiba mais sobre como eles funcionam e seus benefícios.</p>
+            <a href="#" class="btn btn-primary">Leia mais</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="col-md-6 post">
+        <div class="card">
+          <img src="img/closeup-support-hands.jpg" class="card-img-top img-fluid" alt="Imagem de cuidados paliativos">
+          <div class="card-body">
+            <h5 class="card-title post-title">Importância do Suporte Familiar</h5>
+            <p class="card-text post-content">O suporte familiar é essencial no cuidado de pacientes em cuidados paliativos. Entenda como os familiares podem contribuir para o bem-estar do paciente.</p>
+            <a href="#" class="btn btn-primary">Leia mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="row mt-4">
+      <div class="col-12 post">
+        <div class="card">
+          <!--<img src="https://via.placeholder.com/1200x500" class="card-img-top" alt="Imagem de cuidados paliativos"> -->
+          <div class="card-body">
+            <h5 class="card-title post-title">Como os Cuidados Paliativos Melhoram a Qualidade de Vida</h5>
+            <p class="card-text post-content">Cuidados paliativos não têm como objetivo curar, mas sim proporcionar qualidade de vida. Descubra como essa abordagem pode transformar a experiência do paciente e sua família.</p>
+            <a href="#" class="btn btn-primary">Leia mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+     
+  <!-- Rodapé -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Cuidados Paliativos. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Scripts do Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
