@@ -1,0 +1,26 @@
+/* Alinhamento do título na hero section */
+.hero-section {
+    background-color: #6c63ff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilo para o formulário */
+form {
+    border: 2px solid #6c63ff;  /* Define a borda com a cor de fundo */
+    padding: 20px;  /* Adiciona espaçamento interno */
+    border-radius: 10px;  /* Torna as bordas arredondadas */
+}
+
+/* Customiza o navbar */
+.navbar {
+    z-index: 100;
+}
+
+/* Ajusta o texto do título */
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
+}
