@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+            form {
+            border: 2px solid ;  /* Define a borda  */
+            padding: 20px;  /* Adiciona espaçamento interno */
+            border-radius: 10px;  /* Torna as bordas arredondadas */
+        }
+    </style>
+    <title>PHP Aula 3</title>
+
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Cuidados Paliativos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#alertas">Sinais de Alerta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- Banner Inicial -->
+    <section class="hero-section d-flex align-items-center text-center text-white" style="background-color: #6c63ff; height: 100vh;">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Informação e Apoio em Cuidados Paliativos</h1>
+            <p class="lead">Saiba quando procurar ajuda médica e como oferecer conforto com dignidade.</p>
+            <a href="#sobre" class="btn btn-light btn-lg mt-4">Saiba Mais</a>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="sobre" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-4">O que são Cuidados Paliativos?</h2>
+                    <p class="text-muted">Cuidados paliativos são uma abordagem de tratamento focada na melhoria da qualidade de vida de pacientes com doenças graves, oferecendo suporte físico, emocional e espiritual tanto para os pacientes quanto para suas famílias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sinais de Alerta -->
+    <section id="alertas" class="bg-light py-5">
+        <div class="container">
+            <div class="row text-center">
+                <h2 class="fw-bold mb-5">Sinais de Alerta</h2>
+                <!-- Cartões de alerta -->
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Fadiga Excessiva</h5>
+                            <p class="card-text">Cansaço extremo sem causa aparente pode ser um sinal de agravamento da condição de saúde.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Perda de Apetite</h5>
+                            <p class="card-text">Mudanças no apetite podem indicar piora no quadro clínico e merecem atenção.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Dificuldade Respiratória</h5>
+                            <p class="card-text">Alterações na respiração podem ser sinais importantes para procurar atendimento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-4">Fale Conosco</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <?php include('formulario.php'); ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Cuidados Paliativos | Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
