@@ -21,10 +21,10 @@
                 <div class="col-md-6">
                     <h2 class="text-center mb-4">Login</h2>
 
-                    <!-- Exibindo erro caso exista -->
+                    <!-- Exibindo erro caso exista 
                     <?php if (isset($erro)): ?>
                         <div class="alert alert-danger"><?php echo $erro; ?></div>
-                    <?php endif; ?>
+                    <?php endif; ?>-->
 
                     <form action="login.php" method="POST">
                         <div class="mb-3">
@@ -35,6 +35,9 @@
                             <label for="senha" class="form-label">Senha</label>
                             <input type="password" class="form-control" id="senha" name="senha" required>
                         </div>
+                        <button type="submit" class="btn btn-primary w-100">Primeiro acesso</button>
+                        <br>
+                        <br>
                         <button type="submit" class="btn btn-primary w-100">Entrar</button>
                     </form>
                 </div>
