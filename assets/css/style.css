@@ -1,7 +1,7 @@
 /* Alinhamento do título na hero section */
 .hero-section {
     background-color: #6c63ff;
-    height: 100vh;
+    min-height: 100vh;  /* Garante que ocupe a altura mínima da tela */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,17 +10,69 @@
 
 /* Estilo para o formulário */
 form {
-    border: 2px solid #6c63ff;  /* Define a borda com a cor de fundo */
-    padding: 20px;  /* Adiciona espaçamento interno */
-    border-radius: 10px;  /* Torna as bordas arredondadas */
+    border: 2px solid #6c63ff;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;  /* Cor de fundo do formulário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombras sutis */
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #4e4bff;  /* Cor da borda ao focar */
+    box-shadow: 0 0 8px rgba(78, 75, 255, 0.6);  /* Efeito de foco */
 }
 
 /* Customiza o navbar */
 .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
     z-index: 100;
+    background-color: #ffffff;  /* Cor de fundo para o navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombras sutis */
 }
 
+.navbar a {
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+    background-color: #6c63ff;  /* Efeito de hover */
+}
 /* Ajusta o texto do título */
 h1, h2, h3 {
     font-family: 'Arial', sans-serif;
+    color: #333;  /* Cor do texto para maior contraste */
+}
+
+h1 {
+    font-size: 2.5rem;  /* Tamanho maior para h1 */
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
 }
