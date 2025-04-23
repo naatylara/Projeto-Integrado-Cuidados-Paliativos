@@ -30,7 +30,7 @@ class endereco{
         return $this -> numero;
     }
     
-    public function setNumero(){
+    public function setNumero($numero){
         $this -> numero = $numero;
     }
 
@@ -38,7 +38,7 @@ class endereco{
         return $this -> bairro;
     }
 
-    public function setBairro(){
+    public function setBairro($bairro){
         $this -> bairro = $bairro;
     }
 
@@ -46,7 +46,7 @@ class endereco{
         return $this -> cidade;
     }
     
-    public function setCidade(){
+    public function setCidade($cidade){
         $this -> cidade = $cidade;
     }
 
@@ -54,20 +54,20 @@ class endereco{
         return $this -> estado;
     }
 
-    public function setEstado(){
+    public function setEstado($estado){
         $this -> estado = $estado;
     }
 
     public function getCep(){
         return $this -> cep;
     }
-    public function setCep(){
+    public function setCep($cep){
         $this -> cep = $cep;
     }
     public function getComplemento(){
         return $this -> complemento;
     }
-    public function setComplemento(){
+    public function setComplemento($complemento){
         $this -> complemento = $complemento;
     }
     public function __toString() {
