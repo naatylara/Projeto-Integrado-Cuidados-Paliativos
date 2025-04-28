@@ -20,36 +20,33 @@
         }
     </style>
     <script>
-        // Validação do formulário
         function validateForm(event) {
-            const usuario = document.getElementById('usuario');
-            const senha = document.getElementById('senha');
-            let valid = true;
+        const usuario = document.getElementById('usuario');
+        const senha = document.getElementById('senha');
+        let valid = true;
 
-            // Validação de e-mail (formato)
-            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            if (!emailRegex.test(usuario.value)) {
-                usuario.setAttribute('aria-invalid', 'true');
-                valid = false;
-            } else {
-                usuario.removeAttribute('aria-invalid');
-            }
-
-            // Validação de senha (minúsculas, maiúsculas, números e caracteres especiais)
-            const senhaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-            if (!senhaRegex.test(senha.value)) {
-                senha.setAttribute('aria-invalid', 'true');
-                valid = false;
-            } else {
-                senha.removeAttribute('aria-invalid');
-            }
-
-            // Se algum campo for inválido, impede o envio do formulário
-            if (!valid) {
-                event.preventDefault();
-                alert("Por favor, preencha os campos corretamente.");
-            }
+        // Validação de nome de usuário (mínimo 3 caracteres)
+        if (usuario.value.trim().length < 3) {
+            usuario.setAttribute('aria-invalid', 'true');
+            valid = false;
+        } else {
+            usuario.removeAttribute('aria-invalid');
         }
+
+        // Validação de senha forte
+        const senhaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!senhaRegex.test(senha.value)) {
+            senha.setAttribute('aria-invalid', 'true');
+            valid = false;
+        } else {
+            senha.removeAttribute('aria-invalid');
+        }
+
+        if (!valid) {
+            event.preventDefault();
+            alert("Por favor, preencha os campos corretamente.");
+        }
+    }
     </script>
 </head>
 <body>
@@ -80,7 +77,8 @@
                     <form action="login.php" method="POST" onsubmit="validateForm(event)">
                         <div class="mb-3">
                             <label for="usuario" class="form-label">Usuário</label>
-                            <input type="text" class="form-control" id="usuario" name="usuario" aria-label="Digite seu e-mail" aria-describedby="emailHelp" required>
+                            <input type="text" class="form-control" id="usuario" name="usuario" aria-label="Digite seu nome de usuário" required>
+
                         </div>
                         <div class="mb-4">
                             <label for="senha" class="form-label">Senha</label>
@@ -90,8 +88,8 @@
 
                         <!-- Botões -->
                         <div class="d-grid gap-2">
-                            <a href="primeiro_acesso.html" class="btn btn-outline-primary">Primeiro Acesso</a>
                             <button type="submit" class="btn btn-primary">Entrar</button>
+                            <a href="primeiro_acesso.html" class="btn btn-outline-primary">Primeiro Acesso</a>
                         </div>
                     </form>
                 </div>

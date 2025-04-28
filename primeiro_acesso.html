@@ -16,6 +16,7 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
     </style>
+    
 </head>
 <body>
 
@@ -66,7 +67,7 @@
                         <div class="row">
                             <div class="mb-3 col-md-4">
                                 <label for="cep" class="form-label">CEP</label>
-                                <input type="text" class="form-control" id="cep" name="cep" required>
+                                <input type="text" class="form-control" id="cep" name="cep" required maxlength="8">
                             </div>
                             <div class="mb-3 col-md-8">
                                 <label for="rua" class="form-label">Rua</label>
@@ -96,6 +97,7 @@
                                 <label for="estado" class="form-label">Estado</label>
                                 <input type="text" class="form-control" id="estado" name="estado" required>
                             </div>
+                            <p id="mensagem-erro" style="color: red; display: none;">CEP não encontrado</p>
                         </div>
 
                         <button type="submit" class="btn btn-success w-100 mt-3">Cadastrar</button>
@@ -112,5 +114,62 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    // Valida se as senhas coincidem
+    document.querySelector("form").addEventListener("submit", function(e) {
+        const senha = document.getElementById("senha").value;
+        const confirmar = document.getElementById("confirmar_senha").value;
+        if (senha !== confirmar) {
+            e.preventDefault();
+            alert("As senhas não coincidem.");
+        }
+    });
+
+    // Busca o endereço pelo CEP (fonte:https://bruno.art.br/blog/preenchimento-de-endereco-automatico-pelo-campo-cep/)
+    const mensagemErro = document.getElementById('mensagem-erro');
+
+    document.getElementById('cep').addEventListener('input', function() {
+        const cep = this.value.replace(/\D/g, ''); // remove caracteres não numéricos
+
+        if (cep.length === 8) {
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.erro) {
+                        mensagemErro.style.display = 'block';
+                        resetFields();
+                    } else {
+                        mensagemErro.style.display = 'none';
+                        document.getElementById('rua').value = data.logradouro || '';
+                        document.getElementById('complemento').value = data.complemento || '';
+                        document.getElementById('bairro').value = data.bairro || '';
+                        document.getElementById('estado').value = data.uf || '';
+                        document.getElementById('cidade').value = data.localidade || '';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar CEP:', error);
+                    mensagemErro.style.display = 'block';
+                    resetFields();
+                });
+        }
+    });
+
+    function resetFields() {
+        document.getElementById('rua').value = '';
+        document.getElementById('complemento').value = '';
+        document.getElementById('bairro').value = '';
+        document.getElementById('numero').value = '';
+        document.getElementById('estado').value = '';
+        document.getElementById('cidade').value = '';
+    }
+
+    });
+
+    </script>
 </body>
 </html>
