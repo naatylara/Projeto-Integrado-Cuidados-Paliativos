@@ -7,6 +7,7 @@ Bruno Fujisão -
 Caio Alves Galassi - 
 Lucas Kenji Skiba - 
 Nátaly Lara Moraes da Silva
+Samuel Gustavo Passos
 
 Nosso propósito é criar uma ferramenta acessível e informativa para apoiar aqueles que precisam de orientação sobre cuidados paliativos.
 
