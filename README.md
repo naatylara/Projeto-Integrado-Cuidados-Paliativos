@@ -9,3 +9,5 @@ Lucas Kenji Skiba -
 Nátaly Lara Moraes da Silva
 
 Nosso propósito é criar uma ferramenta acessível e informativa para apoiar aqueles que precisam de orientação sobre cuidados paliativos.
+
+Documento para entrega: https://1drv.ms/w/c/7c047d728926df0a/ESBc_fLzFzBBru_LaYg8bxIBZJtZdwcSyb8nOlQ39KgEUQ?e=MgMDqI
