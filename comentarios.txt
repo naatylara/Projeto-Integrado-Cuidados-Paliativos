@@ -1,0 +1,13 @@
+        <!--COMENTARIOS-->
+        ENTREGA 3 (17/05)
+        <!--colocar imagem de fundo (index)--> /nataly
+        <!--arrumar os contatos(index)--> /nataly 
+        <!--Definir tela guia e conteudo--> /skiba 
+        <!--colorir de acordo com gravidade--> /skiba 
+        <!--fazer uma tela "sobre"--> /samuel 
+        <!--tela de prontuario médico (sera que pedimos a doença da pessoa na tela de primeiro acesso?)--> /bruno
+        <!--adicionar data nascimento na tela de primeiro acesso--> / samuel
+        <!--o que devemos colocar em login adim?--> / bruno
+        fazer conexão com banco /caio e bruno 
+        se precisar se prototipos /samuel 
+         
