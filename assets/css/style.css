@@ -42,8 +42,8 @@ form textarea:focus {
 }
 
 .navbar a:hover {
-    color: #ffffff;
-    background-color: #6c63ff;  /* Efeito de hover */
+    color: #4e4bff;
+    background-color: #ffffff;  /* Efeito de hover */
 }
 /* Ajusta o texto do título */
 h1, h2, h3 {
@@ -75,5 +75,14 @@ h3 {
     h3 {
         font-size: 1.2rem;
     }
+    
 }
+body {
+    padding-top: 70px;
+  }
 
+  .no-outline:focus,
+  .no-outline:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }

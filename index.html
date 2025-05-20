@@ -16,15 +16,15 @@
         <div class="container">
 
           <!-- Logo/Marca -->
-          <span class="navbar-brand fw-bold text-primary">
+          <a href="index.html" class="navbar-brand fw-bold text-primary fs-2">
             <i class="bi bi-heart-pulse-fill me-2 text-danger"></i> Cuidados Paliativos
-          </span>              
+          </a>
       
           <!-- Menu -->
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
               <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
-              <li class="nav-item"><a class="nav-link" href="#conteudo">Conteúdo</a></li>
+              <!--<li class="nav-item"><a class="nav-link" href="#conteudo">Conteúdo</a></li>-->
               <li class="nav-item"><a class="nav-link" href="guia.html">Guia</a></li>
               <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
               <li class="nav-item">
@@ -40,37 +40,32 @@
             </ul>
           </div>
         </div>
-    </header>    
-    
-    <section class="hero-section position-relative" style="height: 100vh; overflow: hidden;">
-      <!-- Carrossel de Imagens -->
-      <div id="carouselHeader" class="carousel slide h-100" data-bs-ride="carousel">
-        <div class="carousel-inner h-100">
-          <div class="carousel-item active h-100">
-            <img src="assets/img/img1.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Imagem 1">
-          </div>
-          <div class="carousel-item h-100">
-            <img src="assets/img/img2.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Imagem 2">
-          </div>
-          <div class="carousel-item h-100">
-            <img src="assets/img/img3.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Imagem 3">
+    </header>   
+
+    <!-- Imagens-->
+      <section class="info-section py-5">
+        <div class="container">        
+          <div class="row g-4">
+            <div class="col-md-4">
+              <img src="assets/img/img1.jpg" alt="Imagem 1" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-4">
+              <img src="assets/img/img2.jpg" alt="Imagem 2" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-4">
+              <img src="assets/img/img3.jpg" alt="Imagem 3" class="img-fluid rounded shadow-sm">
+            </div>
           </div>
         </div>
-      </div>
-    
-      <!-- Texto sobreposto -->
-      <div class="container position-absolute top-50 start-50 translate-middle text-center text-white">
-        <h1 class="display-4 fw-bold">Informação e Apoio em Cuidados Paliativos</h1>
-        <p class="lead">Saiba quando procurar ajuda médica e como oferecer conforto com dignidade.</p>
-      </div>
-    </section>
-
-    
+      </section> 
 
     <!-- Sinais de Alerta -->
     <section id="alertas" class="bg-light py-5">
         <div class="container">
             <div class="row text-center">
+              <h1 class="display-6 fw-bold">Informação e Apoio em Cuidados Paliativos</h1>
+              <p class="lead mb-0">Saiba quando procurar ajuda médica e como oferecer conforto com dignidade.</p>
+              <p></p>
                 <h2 class="fw-bold mb-5">Sinais de Alerta</h2>
                 <!-- Cartões de alerta -->
                 <div class="col-md-4">
@@ -102,7 +97,7 @@
     </section>
 
     <!-- Contato -->
-    <section id="contato" class="py-5 bg-light">
+    <section id="contato" class="bg-light py-5">
         <div class="container">
           <h2 class="text-center fw-bold mb-4">Fale Conosco</h2>
           <div class="row justify-content-center">
@@ -136,7 +131,7 @@
       </section>
 
     <!-- Rodapé -->
-    <footer class="bg-white text-dark pt-4 pb-2 mt-5 border-top">
+    <footer class="bg-white text-dark pt-4 pb-2 mt-5 border-top ">
         <div class="container text-center">          
           <p class="mb-1 d-inline-block">&copy; 2025 Cuidados Paliativos. Todos os direitos reservados.</p>
           <small class="text-muted d-block">Desenvolvido por estudantes de ADS - Faculdade Positivo (Noturno)</small>

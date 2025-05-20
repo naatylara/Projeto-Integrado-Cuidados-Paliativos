@@ -4,32 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guia de Cuidados</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css"> <!--CSS-->
+
 </head>
 <body>
+    <!-- Cabeçalho -->  
+    <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top border-bottom">
+      <div class="container">
 
-  <!-- Navegação -->
-  <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top border-bottom">
-    <div class="container">
-      <a href="index.html" class="navbar-brand fw-bold text-primary d-flex align-items-center">
-        <i class="bi bi-heart-pulse-fill me-2 text-danger"></i> Cuidados Paliativos
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="index.html#sobre">Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#conteudo">Conteúdo</a></li>
-          <li class="nav-item"><a class="nav-link active" href="guia.html">Guia</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.html#contato">Contato</a></li>
-          <li class="nav-item ms-3"><a class="btn btn-outline-primary d-flex align-items-center" href="login.html"><i class="bi bi-box-arrow-in-right me-1"></i> Login</a></li>
-          <li class="nav-item ms-3"><a class="btn btn-outline-secondary d-flex align-items-center" href="loginAdm.html"><i class="bi bi-shield-lock me-1"></i> Login ADM</a></li>
-        </ul>
+        <!-- Logo/Marca -->
+        <a href="index.html" class="navbar-brand fw-bold text-primary fs-2 no-outline">
+          <i class="bi bi-heart-pulse-fill me-2 text-danger"></i> Cuidados Paliativos
+        </a>
+    
+        <!-- Menu -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+            <!--<li class="nav-item"><a class="nav-link" href="#conteudo">Conteúdo</a></li>-->
+            <li class="nav-item"><a class="nav-link" href="guia.html">Guia</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+            <li class="nav-item">
+              <a class="btn btn-outline-primary ms-3 d-flex align-items-center" href="login.html">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-secondary ms-3 d-flex align-items-center small" href="loginAdm.html">
+                  <i class="bi bi-shield-lock me-1"></i> Login ADM
+              </a>
+          </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </header>
+  </header>   
 
   <!-- Conteúdo -->
   <main class="pt-5 mt-5">
@@ -78,12 +88,14 @@
   </main>
 
   <!-- Rodapé -->
-  <footer class="bg-white text-center text-muted pt-4 pb-2 mt-5 border-top">
-    <div class="container">
-      <p class="mb-1">Cuidados Paliativos, 2025</p>
+  <footer class="bg-white text-dark pt-4 pb-2 mt-5 border-top ">
+    <div class="container text-center">          
+      <p class="mb-1 d-inline-block">&copy; 2025 Cuidados Paliativos. Todos os direitos reservados.</p>
+      <small class="text-muted d-block">Desenvolvido por estudantes de ADS - Faculdade Positivo (Noturno)</small>
     </div>
-  </footer> 
-
+  </footer>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
