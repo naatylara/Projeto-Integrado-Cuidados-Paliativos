@@ -69,6 +69,7 @@ class endereco{
     }
     public function setComplemento($complemento){
         $this -> complemento = $complemento;
+        
     }
     public function __toString() {
         return "{$this->rua}, {$this->numero} - {$this->bairro}, {$this->cidade} - {$this->estado}, CEP: {$this->cep}";
