@@ -1,6 +1,6 @@
 <?php
 
-class Pessoa extends Endereco {
+class Pessoa {
     private $nomeCompleto;
     private $dataNascimento;
     private $cpf;
