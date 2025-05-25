@@ -1,0 +1,46 @@
+CREATE TABLE endereco (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    rua VARCHAR(100) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    complemento VARCHAR(50),
+    bairro VARCHAR(50) NOT NULL,
+    cidade VARCHAR(50) NOT NULL,
+    estado VARCHAR(2) NOT NULL,
+    cep VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nomeCompleto VARCHAR(100) NOT NULL,
+    dataNascimento DATE NOT NULL,
+    cpf VARCHAR(14) NOT NULL,
+    endereco_id INT, 
+    telefone VARCHAR(20) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    user VARCHAR(50) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+
+    FOREIGN KEY (endereco_id) REFERENCES endereco(id)
+       
+);
+
+CREATE TABLE adm (
+    usuario_id INT PRIMARY KEY,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) 
+);
+
+CREATE TABLE permissao (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT
+);
+
+CREATE TABLE adm_permissoao (
+    usuario_id INT,
+    permissao_id INT,
+    PRIMARY KEY (usuario_id, permissao_id),
+    FOREIGN KEY (usuario_id) REFERENCES adm(usuario_id) ,
+    FOREIGN KEY (permissao_id) REFERENCES permissao(id) 
+);
+
+

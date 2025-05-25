@@ -25,3 +25,4 @@ class Permissao {
         $this->descricao = $descricao;
     }
 }
+?>
