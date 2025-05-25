@@ -62,5 +62,7 @@
 
         return parent::__toString()."Usuário - Email: {$this->email}, User: {$this->user}, Senha: {$this->senha}, Cargo: {$this->cargo}";
     }
+
+     
    
 ?>
