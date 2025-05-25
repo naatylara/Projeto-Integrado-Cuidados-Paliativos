@@ -1,5 +1,6 @@
 <?php
 class endereco{
+    private $id;
     private $rua;
     private $numero;
     private $bairro;
@@ -8,14 +9,14 @@ class endereco{
     private $cep;
     private $complemento;
 
-    public function __construct($rua, $numero, $bairro, $cidade, $estado, $cep, $complemento){
-        $this -> rua = $rua;
-        $this -> numero = $numero;
-        $this -> bairro = $bairro;
-        $this -> cidade = $cidade;
-        $this -> estado = $estado;
-        $this -> cep = $cep;
-        $this -> complemento = $complemento;
+    public function getId(){
+
+        return $this->id;
+    }
+
+    public function setId($id){
+
+        $this->id = $id;
     }
 
     public function getRua(){
