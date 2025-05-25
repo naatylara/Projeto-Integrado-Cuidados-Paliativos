@@ -5,16 +5,16 @@
         private $email;
         private $user;
         private $senha;
-        
-    
-        public function __construct($email, $user, $senha){
-            parent:: __construct($nomeCompleto, $dataNascimento, $cpf, $endereco, $telefone)
-    
-            this->email = $email;
-            this->user= $user;
-            this->senha = $senha;
 
-        }
+        public function getId(){
+
+        return $this->id;
+    }
+
+    public function setId($id){
+
+        $this->id = $id;
+    }
 
         public function getEmail(){
 
@@ -48,7 +48,7 @@
 
     public function __toString(){
 
-        return parent::__toString()."Usuário - Email: {$this->email}, User: {$this->user}, Senha: {$this->senha}, Cargo: {$this->cargo}";
+        return parent::__toString()."Usuário - Email: {$this->email}, User: {$this->user}, Senha: {$this->senha}";
     }
 
 }
