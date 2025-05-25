@@ -2,7 +2,7 @@
 
 class adm extends Usuario{
     private $permissoes;
-    private $agenda;
+    
 }
 
 public function __construct($permissoes, $agenda){
