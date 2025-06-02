@@ -9,6 +9,47 @@
     <link rel="stylesheet" href="assets/css/style.css"> <!--CSS-->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.jpg">
     <title>Cuidados Paliativos</title>
+    <style>
+      .img-hover-move {
+        transition: transform 0.3s ease;
+      }
+    
+      .img-hover-move:hover {
+        transform: scale(1.05) translateY(-8px);
+      }
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: scale(1.03) translateY(-6px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      }
+      .card-hover-expand {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .card-hover-expand:hover {
+        transform: scale(1.03) translateY(-6px);
+        box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.2);
+      }
+
+      .card-extra {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+      }
+
+      .card-hover-expand:hover .card-extra {
+        max-height: 200px; /* ajuste conforme o conteúdo */
+        opacity: 1;
+      }
+      
+    </style>
+
   
 </head>
 <body>
@@ -48,13 +89,13 @@
         <div class="container">        
           <div class="row g-4">
             <div class="col-md-4">
-              <img src="assets/img/img1.jpg" alt="Imagem 1" class="img-fluid rounded shadow-sm ">
+              <img src="assets/img/img1.jpg" alt="Imagem 1" class="img-fluid rounded shadow-sm img-hover-move">
             </div>
             <div class="col-md-4">
-              <img src="assets/img/img2.jpg" alt="Imagem 2" class="img-fluid rounded shadow-sm ">
+              <img src="assets/img/img2.jpg" alt="Imagem 2" class="img-fluid rounded shadow-sm img-hover-move">
             </div>
             <div class="col-md-4">
-              <img src="assets/img/img3.jpg" alt="Imagem 3" class="img-fluid rounded shadow-sm ">
+              <img src="assets/img/img3.jpg" alt="Imagem 3" class="img-fluid rounded shadow-sm img-hover-move">
             </div>
           </div>
         </div>
@@ -72,31 +113,39 @@
         <!-- Cartões de alerta -->
         <div class="row g-4">
           <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 shadow-sm card-hover-expand">
               <div class="card-body">
-                <h5 class="card-title">Fadiga Excessiva</h5>
-                <p class="card-text">Cansaço extremo sem causa aparente pode ser um sinal de agravamento da condição de saúde.</p>
+                <h5 class="card-title" >Fadiga Excessiva</h5>
+                <p class="card-text" style="text-align: justify;">Cansaço extremo sem causa aparente pode ser um sinal de agravamento da condição de saúde.</p>
+                <div class="card-extra" style="text-align: justify;">
+                  <p>Esse tipo de fadiga pode prejudicar a rotina e diminuir a qualidade de vida. É essencial observar a frequência e intensidade desse sintoma.</p>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 shadow-sm card-hover-expand">
               <div class="card-body">
                 <h5 class="card-title">Perda de Apetite</h5>
-                <p class="card-text">Mudanças no apetite podem indicar piora no quadro clínico e merecem atenção.</p>
+                <p class="card-text" style="text-align: justify;">Mudanças no apetite podem indicar piora no quadro clínico e merecem atenção.</p>
+                <div class="card-extra" style="text-align: justify;">
+                  <p>Pacientes em cuidados paliativos podem apresentar perda de apetite como resposta ao avanço da doença ou ao uso de medicamentos. Avaliar a nutrição é essencial.</p>
+                </div>
               </div>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
+            <div class="card h-100 shadow-sm card-hover-expand">
               <div class="card-body">
-                <h5 class="card-title">Dificuldade Respiratória</h5>
-                <p class="card-text">Alterações na respiração podem ser sinais importantes para procurar atendimento.</p>
+                <h5 class="card-title" style="text-align: justify;">Dificuldade Respiratória</h5>
+                <p class="card-text" style="text-align: justify;">Alterações na respiração podem ser sinais importantes para procurar atendimento.</p>
+                <div class="card-extra">
+                  <p>Respiração curta, ofegante ou com esforço pode indicar necessidade de suporte médico imediato. Monitore esses sinais frequentemente.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
 
 
