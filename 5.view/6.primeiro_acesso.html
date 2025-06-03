@@ -22,7 +22,35 @@
             color: #fff;
         }
     </style>
-    
+    <script>
+        function validateForm(event) {
+        const usuario = document.getElementById('usuario');
+        const senha = document.getElementById('senha');
+        let valid = true;
+
+        // Validação de nome de usuário (mínimo 3 caracteres)
+        if (usuario.value.trim().length < 3) {
+            usuario.setAttribute('aria-invalid', 'true');
+            valid = false;
+        } else {
+            usuario.removeAttribute('aria-invalid');
+        }
+
+        // Validação de senha forte
+        const senhaRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!senhaRegex.test(senha.value)) {
+            senha.setAttribute('aria-invalid', 'true');
+            valid = false;
+        } else {
+            senha.removeAttribute('aria-invalid');
+        }
+
+        if (!valid) {
+            event.preventDefault();
+            alert("Por favor, preencha os campos corretamente.");
+        }
+    }
+    </script>    
 </head>
 <body>
      <!-- Cabeçalho -->  
@@ -34,7 +62,7 @@
             <i class="bi bi-heart-pulse-fill me-2 text-danger"></i> Cuidados Paliativos
           </a>
         </div>
-     </header>
+        
 
     <!-- Formulário de Cadastro -->
     <section class="py-5">
