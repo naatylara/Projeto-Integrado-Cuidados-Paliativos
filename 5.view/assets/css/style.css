@@ -105,3 +105,13 @@ body {
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.carousel-inner img {
+    max-height: 500px; /* Ajuste o valor para o tamanho desejado */
+    width: auto;       /* Mantém a proporção da imagem */
+    margin: 0 auto;    /* Centraliza a imagem */
+    object-fit: contain; /* Para a imagem não esticar */
+  }
+  .container-fluid {
+    padding-left: 70px;  /* ajuste a margem mínima que quiser */
+    padding-right: 70px;
+  }

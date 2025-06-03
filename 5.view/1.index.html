@@ -30,12 +30,11 @@
         overflow: hidden;
         position: relative;
       }
-
       .card-hover-expand:hover {
         transform: scale(1.03) translateY(-6px);
-        box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.5rem 1.2rem rgba(220, 53, 69, 0.5); /* tom vermelho */
+        background-color: #f8d7da; /* vermelho claro estilo Bootstrap danger-light */
       }
-
       .card-extra {
         max-height: 0;
         overflow: hidden;
@@ -49,13 +48,12 @@
       }
       
     </style>
-
   
 </head>
 <body>
     <!-- Cabeçalho -->  
     <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top border-bottom">
-        <div class="container">
+        <div class="container-fluid">
 
           <!-- Logo/Marca -->
           <a href="1.index.html" class="navbar-brand fw-bold text-primary fs-3">
@@ -86,8 +84,8 @@
 
     <!-- Imagens-->
       <section class="info-section py-5">
-        <div class="container">        
-          <div class="row g-4">
+        <div class="container-fluid">        
+          <div class="row g-3">
             <div class="col-md-4">
               <img src="assets/img/img1.jpg" alt="Imagem 1" class="img-fluid rounded shadow-sm img-hover-move">
             </div>
@@ -101,14 +99,64 @@
         </div>
       </section> 
 
-    <!-- Sinais de Alerta -->
+    <!-- Informação e Apoio -->
     <section id="alertas" class="bg-light py-5">
-      <div class="container">
+      <div class="container-fluid">
         <div class="text-center mb-5">
-          <h2 class="text-center fw-bold mb-4">Informação e Apoio em Cuidados Paliativos</h2>
+          <h2 class="fw-bold mb-4">Informação e Apoio em Cuidados Paliativos</h2>
+    
+          <div class="row g-4 text-justify">
+            <div class="col-md-6">
+              <h5>Aspectos Físicos</h5>
+              <p style="text-align: justify;">Pacientes em cuidados paliativos frequentemente enfrentam sintomas variados e complexos. Além da dor, náuseas, vômitos, dispneia (dificuldade respiratória), fadiga, constipação, insônia e perda de apetite, podem ocorrer:</p>
+              <ul>
+                <li style="text-align: justify;">Edema e inchaço, indicando problemas circulatórios ou efeitos colaterais de medicamentos.</li>
+                <li style="text-align: justify;">Alterações na mobilidade, como fraqueza muscular e perda de força, que dificultam os movimentos.</li>
+                <li style="text-align: justify;">Alterações na pele, como úlceras de pressão e irritações, demandando cuidados específicos para evitar complicações.</li>
+                <li style="text-align: justify;">Alterações cognitivas, incluindo confusão mental e delírios, especialmente em fases avançadas da doença.</li>
+              </ul>
+              <p style="text-align: justify;">O manejo eficaz desses sintomas requer uma abordagem multidisciplinar, com avaliação constante e ajustes no tratamento, priorizando o conforto e a qualidade de vida do paciente.</p>
+            </div>
+    
+            <div class="col-md-6">
+              <h5>Aspectos Psicológicos e Emocionais</h5>
+              <p style="text-align: justify;">Além da tristeza, depressão e ansiedade, pacientes e familiares podem experienciar:</p>
+              <ul>
+                <li style="text-align: justify;">Medo da morte e do sofrimento, ansiedade relacionada ao desconhecido e à condição.</li>
+                <li style="text-align: justify;">Sentimentos de culpa e raiva relacionados à doença e suas consequências.</li>
+                <li style="text-align: justify;">Isolamento social devido ao afastamento das atividades cotidianas, agravando o estado emocional.</li>
+              </ul>
+              <p style="text-align: justify;">O apoio psicológico deve incluir estratégias para lidar com o luto antecipado, técnicas de relaxamento e acompanhamento psiquiátrico quando necessário.</p>
+            </div>
+          </div>
+    
+          <div class="row g-4 text- mt-4">
+            <div class="col-md-6">
+              <h5>Aspectos Espirituais e Sociais</h5>
+              <p style="text-align: justify;">O cuidado espiritual e social é fundamental para o conforto do paciente e de sua família:</p>
+              <ul>
+                <li style="text-align: justify;">Respeito à diversidade cultural, crenças e tradições religiosas.</li>
+                <li style="text-align: justify;">Suporte espiritual personalizado, desde a presença de líderes religiosos até práticas meditativas.</li>
+                <li style="text-align: justify;">Rede de apoio social, envolvendo grupos comunitários e voluntariado para suporte prático e emocional.</li>
+                <li style="text-align: justify;">Planejamento de cuidados e decisões finais respeitando os desejos do paciente.</li>
+              </ul>
+            </div>
+    
+            <div class="col-md-6">
+              <h5>Recomendações Práticas</h5>
+              <ul>
+                <li style="text-align: justify;">Educação dos familiares sobre cuidados domiciliares e sinais de alerta.</li>
+                <li style="text-align: justify;">Prevenção de complicações, como infecções e tromboses.</li>
+                <li style="text-align: justify;">Uso racional de medicamentos, evitando polifarmácia e priorizando o conforto.</li>
+                <li style="text-align: justify;">Documentação clara do plano de cuidados para alinhamento da equipe.</li>
+              </ul>
+            </div>
+          </div>
+          <p></p>
           <p class="lead mb-0">Saiba quando procurar ajuda médica e como oferecer conforto com dignidade.</p>
           <h2 class="text-center fw-bold mt-5">Sinais de Alerta</h2>
-        </div>
+        </div>  
+          
     
         <!-- Cartões de alerta -->
         <div class="row g-4">
@@ -147,14 +195,15 @@
           </div>
         </div>
     </section>
-
-
+  
     <!-- Rodapé -->
     <footer class="bg-white text-dark pt-4 pb-2 border-top">
-        <div class="container text-center">          
+        <div class="container text-center">    
           <p class="mb-1 d-inline-block">&copy; 2025 Cuidados Paliativos. Todos os direitos reservados.</p>
           <small class="text-muted d-block">Desenvolvido por estudantes de ADS - Faculdade Positivo (Noturno)</small>
         </div>
+
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -9,35 +9,62 @@
   <link rel="stylesheet" href="assets/css/style.css"> <!--CSS-->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.jpg">
   <style>
+    /* Efeito de expansão do card */
     .card-hover-expand {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
       position: relative;
     }
-  
+
     .card-hover-expand:hover {
       transform: scale(1.03) translateY(-6px);
       box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.2);
     }
-  
+
+    /* Conteúdo oculto que aparece ao passar o mouse */
     .card-extra {
       max-height: 0;
       overflow: hidden;
       opacity: 0;
       transition: max-height 0.5s ease, opacity 0.5s ease;
     }
-  
+
     .card-hover-expand:hover .card-extra {
       max-height: 300px; /* ajuste conforme necessário */
       opacity: 1;
     }
+    /* Cores de fundo personalizadas para os cards */
+    .bg-hover-danger:hover {
+      background-color: #f8d7da;
+    }
+
+    .bg-hover-warning:hover {
+      background-color: #fff3cd;
+    }
+
+    .bg-hover-success:hover {
+      background-color: #d1e7dd;
+    }
+
+    .bg-hover-purple:hover {
+      background-color: #e2d9f3;
+    }
+
+    .bg-hover-primary:hover {
+      background-color: #cfe2ff;
+    }
+
+    .bg-hover-secondary:hover {
+      background-color: #e2e3e5;
+    }
+ 
   </style>
 
 </head>
 <body>
     <!-- Cabeçalho -->  
     <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top border-bottom">
-      <div class="container">
+      <div class="container-fluid">
 
         <!-- Logo/Marca -->
         <a href="1.index.html" class="navbar-brand fw-bold text-primary fs-3 no-outline">
@@ -75,8 +102,8 @@
 
         <!-- Card Vermelho -->
         <div class="col-md-6 col-lg-4">
-          <div class="card shadow-sm h-100 card-hover-expand">
-            <div class="card-body">
+          <div class="card shadow-sm h-100 card-hover-expand bg-hover-danger">
+            <div class="card-body ">
               <h5 class="card-title text-danger"><i class="bi bi-circle-fill me-2"></i> Controle da Dor</h5>
               <p class="card-text"  style="text-align: justify;">Se o paciente está com dor intensa que não melhora, procure ajuda médica imediatamente.</p>
               <div class="card-extra">
@@ -85,9 +112,9 @@
             </div>
           </div>
         </div>
-        <!-- Card Gravidade Amarela -->
+        <!-- Card Amarela -->
         <div class="col-md-6 col-lg-4">
-          <div class="card shadow-sm h-100 card-hover-expand">
+          <div class="card shadow-sm h-100 card-hover-expand bg-hover-warning">
             <div class="card-body">
               <h5 class="card-title text-warning" ><i class="bi bi-circle-fill me-2"></i> Apoio Emocional</h5>
               <ul class="mb-0">
@@ -102,9 +129,9 @@
           </div>
         </div>
 
-      <!-- Card Gravidade Verde -->
+      <!-- Card Verde -->
       <div class="col-md-6 col-lg-4">
-        <div class="card shadow-sm h-100 card-hover-expand">
+        <div class="card shadow-sm h-100 card-hover-expand bg-hover-success">
           <div class="card-body">
             <h5 class="card-title text-success"><i class="bi bi-circle-fill me-2"></i> Higiene e Conforto</h5>
             <p class="card-text"  style="text-align: justify;">Manter o conforto e a higiene ajuda muito no bem-estar geral.</p>
@@ -117,7 +144,7 @@
 
       <!-- Card Roxo -->
       <div class="col-md-6 col-lg-4">
-        <div class="card shadow-sm h-100 card-hover-expand">
+        <div class="card shadow-sm h-100 card-hover-expand bg-hover-purple">
           <div class="card-body">
             <h5 class="card-title text-purple"><i class="bi bi-circle-fill me-2" style="color: #6f42c1;"></i> Comunicação com a Família</h5>
             <p class="card-text" style="text-align: justify;">A troca clara de informações com a família melhora o cuidado e reduz angústias.</p>
@@ -130,7 +157,7 @@
 
       <!-- Card Azul -->
       <div class="col-md-6 col-lg-4">
-        <div class="card shadow-sm h-100 card-hover-expand">
+        <div class="card shadow-sm h-100 card-hover-expand bg-hover-primary">
           <div class="card-body">
             <h5 class="card-title text-primary"><i class="bi bi-circle-fill me-2"></i> Nutrição e Hidratação</h5>
             <p class="card-text" style="text-align: justify;">Manter o paciente hidratado e bem alimentado é essencial para sua energia e conforto.</p>
@@ -143,7 +170,7 @@
 
       <!-- Card Cinza -->
       <div class="col-md-6 col-lg-4">
-        <div class="card shadow-sm h-100 card-hover-expand">
+        <div class="card shadow-sm h-100 card-hover-expand bg-hover-secondary">
           <div class="card-body">
             <h5 class="card-title text-secondary"><i class="bi bi-circle-fill me-2"></i> Cuidados com a Medicação</h5>
             <p class="card-text" style="text-align: justify;">A administração correta dos remédios evita complicações e alivia os sintomas.</p>
