@@ -16,6 +16,13 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <?php
+    if(isset($_GET['editar'])){
+        echo "chamou via editar"; //Apenas para teste
+        require_once '8.controller/usuarioController.php';
+
+    } 
+    ?>
 <div class="container mt-4">
     <h2>Usuários cadastrados</h2>
     <table class="table table-striped table-bordered">
@@ -26,6 +33,7 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
                 <th>Data de Nascimento</th>
                 <th>Endereço</th>
                 <th>Email</th>
+                 <th>Ações</th> 
             </tr>
         </thead>
         <tbody>
@@ -38,6 +46,7 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
                     echo "<td>" . htmlspecialchars($user->getDataNascimento()) . "</td>";
                     echo "<td>" . htmlspecialchars($user->getEndereco()) . "</td>";
                     echo "<td>" . htmlspecialchars($user->getEmail()) . "</td>";
+                    echo "<td>";echo "<a href='?editar=" . urlencode($user->getId()) . "' class='btn btn-primary btn-sm'>Editar</a>";echo "</td>";
                     echo "</tr>";
                 }
             } else {
