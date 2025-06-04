@@ -11,7 +11,9 @@ if(isset($_POST['cadastrar'])){
     $usuario->setNomeCompleto($_POST['nome']);
     $usuario->setDataNascimento($_POST['data_nascimento']);
     //$usuario->setCpf($_POST['cpf']);
-    $usuario->setEndereco($_POST['endereco']);
+    //$usuario->setEndereco($_POST['endereco']);
+    $usuario->setCidade($_POST['cidade']);
+    $usuario->setEstado($_POST['estado']);
     //$usuario->setTelefone($_POST['telefone']);
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
@@ -34,7 +36,9 @@ if(isset($_POST['salvar_edicao'])){
     $usuario->setId($_POST['id']);
     $usuario->setNomeCompleto($_POST['nome']);
     $usuario->setDataNascimento($_POST['data_nascimento']); 
-    $usuario->setEndereco($_POST['endereco']);
+    //$usuario->setEndereco($_POST['endereco']);
+     $user->setCidade($_POST['cidade']);
+    $user->setEstado($_POST['estado']);
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
     $usuarioDao->editar($usuario);
@@ -48,7 +52,9 @@ function listar(){
         echo "<tr> 
                 <td>{$usuario->getId()}</td>
                 <td>{$usuario->getNomeCompleto()}</td>
-                <td>{$usuario->getEndereco()}</td>
+                <td>{$usuario->getDataNascimento()}</td>
+                <td>{$usuario->getEstado()}</td>
+                <td>{$usuario->getCidade()}</td>
                 <td>{$usuario->getEmail()}</td>
                 <td>
                     <a href='editarUsuario.php?editar={$usuario->getId()}>Editar</a>

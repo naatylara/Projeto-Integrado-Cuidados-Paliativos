@@ -6,6 +6,8 @@ class Pessoa {
     private $cpf;
     private $endereco;
     private $telefone;
+    private $cidade;
+    private $estado;
 
     /*public function __construct($nomeCompleto, $dataNascimento, $cpf, $endereco, $telefone) {
         $this->nomeCompleto = $nomeCompleto;
@@ -14,6 +16,21 @@ class Pessoa {
         $this->endereco = $endereco;
         $this->telefone = $telefone;
     }*/
+
+     public function getCidade() {
+        return $this->cidade;
+    }
+    public function setCidade($cidade) {
+        $this->cidade = $cidade;
+    }
+
+
+    public function getEstado() {
+        return $this->estado;
+    }
+    public function setEstado($estado) {
+        $this->estado = $estado;
+    }
 
     public function getNomeCompleto() {
         return $this->nomeCompleto;

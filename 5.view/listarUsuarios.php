@@ -31,7 +31,8 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
                 <th>ID</th>
                 <th>Nome Completo</th>
                 <th>Data de Nascimento</th>
-                <th>Endereço</th>
+                <th>Cidade</th>
+                <th>Estado</th>
                 <th>Email</th>
                  <th>Ações</th> 
             </tr>
@@ -44,7 +45,8 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
                     echo "<td>" . htmlspecialchars($user->getId()) . "</td>";
                     echo "<td>" . htmlspecialchars($user->getNomeCompleto()) . "</td>";
                     echo "<td>" . htmlspecialchars($user->getDataNascimento()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getEndereco()) . "</td>";
+                    echo "<td>" . htmlspecialchars($user->getCidade()) . "</td>";
+                    echo "<td>" . htmlspecialchars($user->getEstado()) . "</td>";
                     echo "<td>" . htmlspecialchars($user->getEmail()) . "</td>";
                     echo "<td>";echo "<a href='?editar=" . urlencode($user->getId()) . "' class='btn btn-primary btn-sm'>Editar</a>";echo "</td>";
                     echo "</tr>";
