@@ -18,6 +18,7 @@
 
         // Verifica se as credenciais são válidas
         if ($usuario === $usuarioValido && $senha === $senhaValida) {
+            echo "<p>Login bem sucedido</p>";
             $_SESSION['usuario'] = $usuario; // Inicia a sessão com o nome do usuário
             header('Location: ficha.php'); // Redireciona para a página ficha.php
             exit();
