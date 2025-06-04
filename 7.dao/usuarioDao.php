@@ -3,7 +3,7 @@ class usuarioDao{
     public function inserir(usuario $user){
         try{
             $sql = "INSERT INTO usuario (nomeCompleto, dataNascimento, cpf, endereco, telefone, email, senha)
-            VALUES(:nomeCompleto, :dataNascimento, :cpf, :endereco, :telefone);";
+            VALUES(:nomeCompleto, :dataNascimento, :cpf, :endereco, :telefone);"; // create table no Querry do banco
             $con_sql = ConnectionFactory::getConnection()->prepare($sql);
             $con_sql -> bindValue(":nomeCompleto", $user->getNomeCompleto());
             $con_sql -> bindValue(":dataNascimento", $user->getDataNascimento());
@@ -39,7 +39,7 @@ class usuarioDao{
     }
 
     public function listaUsuarios($linha){
-        $usuario = new usuario();        //Aqui está com erro (precisa verificar)
+        $usuario = new Usuario();        //Aqui está com erro (precisa verificar)
         $usuario->setId($linha['id']);   //get e set id já está criado, só precisa dar atualizar!
         $usuario->setNomeCompleto($linha['nomeCompleto']);
         $usuario->setDataNascimento($linha['dataNascimento']);
