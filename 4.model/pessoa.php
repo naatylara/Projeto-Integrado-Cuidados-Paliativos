@@ -7,13 +7,13 @@ class Pessoa {
     private $endereco;
     private $telefone;
 
-    public function __construct($nomeCompleto, $dataNascimento, $cpf, $endereco, $telefone) {
+    /*public function __construct($nomeCompleto, $dataNascimento, $cpf, $endereco, $telefone) {
         $this->nomeCompleto = $nomeCompleto;
         $this->dataNascimento = $dataNascimento;
         $this->cpf = $cpf;
         $this->endereco = $endereco;
         $this->telefone = $telefone;
-    }
+    }*/
 
     public function getNomeCompleto() {
         return $this->nomeCompleto;

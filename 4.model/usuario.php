@@ -1,4 +1,7 @@
 <?php
+
+require_once 'Pessoa.php';
+    
     
     class Usuario extends Pessoa {
         private $id;
@@ -17,33 +20,32 @@
     }
 
         public function getEmail(){
-
-            return this->email;
+            return $this->email;
         }
 
         public function setEmail($email){
 
-            this->email = $email;
+            $this->email = $email;
         }
 
         public function getUser(){
 
-            return this->user;
+            return $this->user;
         }
 
         public function setUser($user){
 
-            this->user = $user;
+            $this->user = $user;
         }
 
         public function getSenha(){
 
-            return this->senha;
+            return $this->senha;
         }
 
         public function setSenha($senha){
 
-            this->senha = $senha;
+            $this->senha = $senha;
         }
 
     public function __toString(){

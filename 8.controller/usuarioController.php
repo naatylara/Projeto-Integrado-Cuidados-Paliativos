@@ -1,12 +1,13 @@
 <?php
-include '../dao/ConnectionFactory.php';
-include '../dao/usuarioDao.php';
-include '../model/usuario.php';
+include __DIR__. '/../7.dao/ConnectionFactory.php';
+include __DIR__. '/../7.dao/usuarioDao.php';
+include __DIR__. '/../4.model/usuario.php';
 
-$usuario = new Usuario();
+
 $usuarioDao = new usuarioDao();
 
 if(isset($_POST['cadastrar'])){
+    $usuario = new Usuario();
     $usuario->setNomeCompleto($_POST['nomeCompleto']);
     $usuario->setDataNascimento($_POST['dataNascimento']);
     $usuario->setCpf($_POST['cpf']);
@@ -15,7 +16,7 @@ if(isset($_POST['cadastrar'])){
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
     $usuarioDao->inserir($usuario);
-    //header("Location: ../index.php");
+    header("Location: ../index.php");
 
 }
 
