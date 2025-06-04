@@ -26,7 +26,6 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
                 <th>Data de Nascimento</th>
                 <th>Endereço</th>
                 <th>Email</th>
-                <!-- Você pode adicionar mais colunas se quiser -->
             </tr>
         </thead>
         <tbody>

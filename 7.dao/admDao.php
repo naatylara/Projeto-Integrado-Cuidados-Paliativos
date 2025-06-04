@@ -48,9 +48,9 @@ class admDao {
         $adm->setId($linha['id']);
         $adm->setNomeCompleto($linha['nomeCompleto']);
         $adm->setDataNascimento($linha['dataNascimento']);
-        $adm->setCpf($linha['cpf']);
+        //$adm->setCpf($linha['cpf']);
         $adm->setEndereco($linha['endereco']);
-        $adm->setTelefone($linha['telefone']);
+        //$adm->setTelefone($linha['telefone']);
         $adm->setEmail($linha['email']);
         $adm->setUser($linha['user']);
         $adm->setSenha($linha['senha']);
