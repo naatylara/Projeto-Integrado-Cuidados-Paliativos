@@ -49,6 +49,7 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
                     echo "<td>" . htmlspecialchars($user->getEstado()) . "</td>";
                     echo "<td>" . htmlspecialchars($user->getEmail()) . "</td>";
                     echo "<td>";echo "<a href='?editar=" . urlencode($user->getId()) . "' class='btn btn-primary btn-sm'>Editar</a>";echo "</td>";
+                    echo "<a href='?excluir=" . urlencode($user->getId()) . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir este usuário?\")'>Excluir</a>";
                     echo "</tr>";
                 }
             } else {
