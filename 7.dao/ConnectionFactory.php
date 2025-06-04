@@ -3,7 +3,7 @@
         static $connection;
 
         public static function getConnection(){
-            if(!issset($connection)){
+            if(!isset($connection)){
                 $port = 3306;                       //porta banco de dados
                 $dbName = "CuidadosPaliativosDb";   //nome do banco de dados
                 $userDb = "root";                   // usuário do banco de dados

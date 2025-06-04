@@ -2,14 +2,14 @@
 class usuarioDao{
     public function inserir(usuario $user){
         try{
-            $sql = "INSERT INTO usuario (nomeCompleto, dataNascimento, cpf, endereco, telefone, email, senha)
-            VALUES(:nomeCompleto, :dataNascimento, :cpf, :endereco, :telefone);"; // create table no Querry do banco
+            $sql = "INSERT INTO usuario (nome, data_nascimento, endereco, email, senha)
+            VALUES(:nome, :data_nascimento, :endereco, :email, :senha);"; // create table no Querry do banco
             $con_sql = ConnectionFactory::getConnection()->prepare($sql);
-            $con_sql -> bindValue(":nomeCompleto", $user->getNomeCompleto());
-            $con_sql -> bindValue(":dataNascimento", $user->getDataNascimento());
-            $con_sql -> bindValue(":cpf", $user->getCpf());
+            $con_sql -> bindValue(":nome", $user->getNomeCompleto());
+            $con_sql -> bindValue(":data_nascimento", $user->getDataNascimento());
+            //$con_sql -> bindValue(":cpf", $user->getCpf());
             $con_sql -> bindValue(":endereco", $user->getEndereco());  // ver com a juliana pois o Endereço tem uma classe própria. 
-            $con_sql -> bindValue(":telefone", $user->getTelefone());
+            //$con_sql -> bindValue(":telefone", $user->getTelefone());
             $con_sql -> bindValue(":email", $user->getEmail());
             $con_sql ->bindValue(":senha", $user->getSenha());
 
@@ -31,7 +31,7 @@ class usuarioDao{
             foreach($lista as $linha){
                 $UserList[] = $this->listaUsuarios($linha);
             }
-            echo "Temos".count($UserList). "Usuários cadastrados";
+            echo " Temos ".count($UserList). " usuários cadastrados";
             return $UserList;
         }catch(PDOException $ex){
             echo "<p> Ocorreu um erro ao selecionar usuários</p> $ex";
@@ -41,11 +41,11 @@ class usuarioDao{
     public function listaUsuarios($linha){
         $usuario = new Usuario();        //Aqui está com erro (precisa verificar)
         $usuario->setId($linha['id']);   //get e set id já está criado, só precisa dar atualizar!
-        $usuario->setNomeCompleto($linha['nomeCompleto']);
-        $usuario->setDataNascimento($linha['dataNascimento']);
-        $usuario->setCpf($linha['cpf']);
+        $usuario->setNomeCompleto($linha['nome']);
+        $usuario->setDataNascimento($linha['data_nascimento']);
+        //$usuario->setCpf($linha['cpf']);
         $usuario->setEndereco($linha['endereco']);
-        $usuario->setTelefone(($linha['telefone']));
+        //$usuario->setTelefone(($linha['telefone']));
         $usuario->setEmail(($linha['email']));
         $usuario->setSenha(($linha['senha']));
 
