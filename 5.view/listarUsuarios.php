@@ -34,7 +34,7 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
                 <th>Cidade</th>
                 <th>Estado</th>
                 <th>Email</th>
-                 <th>Ações</th> 
+                <th>Ações</th> 
             </tr>
         </thead>
         <tbody>
