@@ -3,7 +3,7 @@
 require_once 'Pessoa.php';
     
     
-    class Usuario extends Pessoa {
+    class usuario extends Pessoa {
         private $id;
         private $email;
         private $user;

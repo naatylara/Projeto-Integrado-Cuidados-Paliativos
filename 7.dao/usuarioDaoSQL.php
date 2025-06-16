@@ -55,5 +55,41 @@ class usuarioDao{
 
         return $usuario;
     }
+
+
+    public function editar(Usuario $user){
+        try{
+            $sql = "UPDATE usuario SET 
+                nome = :nome, data_nascimento = :data_nascimento, cidade = :cidade, estado = :estado, email = :email, senha = :senha WHERE id = :id";
+            $conn = ConnectionFactory::getConnection()->prepare($sql);
+            $conn->bindValue(":nome", $user->getNomeCompleto());
+            $conn->bindValue(":data_nascimento", $user->getDataNascimento());
+            $conn->bindValue(":cidade", $user->getCidade());
+            $conn->bindValue(":estado", $user->getEstado());
+            $conn-> bindValue(":email", $user->getEmail());
+            $conn->bindValue(":senha", $user->getSenha());
+            return $conn->execute(); // Executa o update
+        }catch(PDOException $ex){
+            echo "<p> Erro ao editar </p> <p> $ex </p>";
+        }
+    }
+
+    public function buscarPorId($id){
+        try{
+            $sql = "SELECT * FROM usuario WHERE id = :id";
+            $conn = ConnectionFactory::getConnection()->prepare($sql);
+            $conn->bindValue(":id", $id);
+            $conn->execute();
+            $row = $conn->fetch(PDO::FETCH_ASSOC); // Busca apenas uma linha
+            if($row){
+                return $this->listaUsuarios($row);
+            }
+            return null; // Retorna null se não encontrar o ID
+        }catch(PDOException $ex){
+            echo "<p>Erro ao buscar fabricante por ID: </p> <p> {$ex->getMessage()} </p>";
+            return null;
+        }
+    }
+
 }
 ?>

@@ -1,10 +1,12 @@
 <?php
-include __DIR__ . '/../7.dao/ConnectionFactory.php';
-include __DIR__ . '/../7.dao/usuarioDao.php';
+//include __DIR__ . '/../7.dao/ConnectionFactory.php';    
+//include __DIR__ . '/../7.dao/usuarioDao.php';
 include __DIR__ . '/../4.model/usuario.php';
+//include __DIR__ . '/../7.dao/usuarioDaoSQL.php';
 
-$usuarioDao = new usuarioDao();
-$usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
+
+//$usuarioDao = new usuarioDao();
+//$usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
 
 ?>
 
@@ -39,22 +41,11 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
         </thead>
         <tbody>
             <?php
-            if ($usuarios && count($usuarios) > 0) {
-                foreach ($usuarios as $user) {
-                    echo "<tr>";
-                    echo "<td>" . htmlspecialchars($user->getId()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getNomeCompleto()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getDataNascimento()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getCidade()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getEstado()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getEmail()) . "</td>";
-                    echo "<td>";echo "<a href='?editar=" . urlencode($user->getId()) . "' class='btn btn-primary btn-sm'>Editar</a>";echo "</td>";
-                    echo "<td>"; echo "<a href='?excluir=" . urlencode($user->getId()) . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir este usuário?\")'>Excluir</a>";echo "</td>";
-                    echo "</tr>";
+                if($_SERVER["REQUEST_METHOD"] == "GET"){
+                    require_once __DIR__ . '/../8.controller/usuarioController.php';
+                    echo "teste";
+                    listar();
                 }
-            } else {
-                echo '<tr><td colspan="5">Nenhum usuário cadastrado.</td></tr>';
-            }
             ?>
         </tbody>
     </table>

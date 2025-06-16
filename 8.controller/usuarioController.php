@@ -1,13 +1,14 @@
 <?php
-include __DIR__. '/../7.dao/ConnectionFactory.php';
-include __DIR__. '/../7.dao/usuarioDao.php';
-include __DIR__. '/../4.model/usuario.php';
+//include __DIR__. '/../7.dao/ConnectionFactory.php';
+//include __DIR__. '/../7.dao/usuarioDaoSQL.php';
+include __DIR__ . '/../4.model/usuario.php';
+include __DIR__ . '/../7.dao/usuarioDao';
 
 
 $usuarioDao = new usuarioDao();
 
 if(isset($_POST['cadastrar'])){
-    $usuario = new Usuario();
+    $usuario = new usuario();
     $usuario->setNomeCompleto($_POST['nome']);
     $usuario->setDataNascimento($_POST['data_nascimento']);
     //$usuario->setCpf($_POST['cpf']);
@@ -24,7 +25,7 @@ if(isset($_POST['cadastrar'])){
 
 if(isset($_GET['editar'])){
     $idUsuario = $_GET['editar'];
-    $usuario = $usuarioDao->bucaPorId($idUsuario);
+    $usuario = $usuarioDao->buscarPorId($idUsuario);
     if(!isset($usuario)){
         echo "<p>Usuario de Id {$idUsuario} não encontrado. </p>";
         header("Location: ../1.index.php?erro=nao_encontrado");
@@ -32,32 +33,36 @@ if(isset($_GET['editar'])){
 }
 
 if(isset($_POST['salvar_edicao'])){
-    $usuario = new Usuario();
     $usuario->setId($_POST['id']);
     $usuario->setNomeCompleto($_POST['nome']);
     $usuario->setDataNascimento($_POST['data_nascimento']); 
     //$usuario->setEndereco($_POST['endereco']);
-     $user->setCidade($_POST['cidade']);
-    $user->setEstado($_POST['estado']);
+    $usuario->setCidade($_POST['cidade']);
+    $usuario->setEstado($_POST['estado']);
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
     $usuarioDao->editar($usuario);
-    header("Location: .../listarUsuarios.php"); // ou onde quiser redirecionar
+    header("Location: .../listarUsuarios.php"); // ou onde quiser redirecionar  
 }
 
 function listar(){
-    $usuarioDao = new UsuarioDao();
+    $usuarioDao = new usuarioDao();
     $lista = $usuarioDao->read();
-    foreach($lista as $usuario){
+    foreach($lista as $user){
         echo "<tr> 
-                <td>{$usuario->getId()}</td>
-                <td>{$usuario->getNomeCompleto()}</td>
-                <td>{$usuario->getDataNascimento()}</td>
-                <td>{$usuario->getEstado()}</td>
-                <td>{$usuario->getCidade()}</td>
-                <td>{$usuario->getEmail()}</td>
+                <td>{$user->getId()}</td>
+                <td>{$user->getNomeCompleto()}</td>
+                <td>{$user->getDataNascimento()}</td>
+                <td>{$user->getEstado()}</td>
+                <td>{$user->getCidade()}</td>
+                <td>{$user->getEmail()}</td>
                 <td>
-                    <a href='editarUsuario.php?editar={$usuario->getId()}>Editar</a>
+                    <a href='index.php?editar={$user->getId()}'class = 'btn btn-primary'> 
+                <i class='bi bi-pencil-square'></i> 
+                Editar</a> 
+                <a href='index.php?excluir={$user->getId()}' class='btn btn-danger'> 
+                <i class='bi bi-trash'></i>
+                Exluir</a> 
                 </td>
             </tr>";
     }

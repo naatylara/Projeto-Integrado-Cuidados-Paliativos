@@ -1,11 +1,11 @@
 <?php
 
-class adm extends Usuario{
+class adm extends usuario{
     private $permissoes;
 
 
     public function __construct($permissoes){
-    $this->permissoes = permissoes;
+    $this->permissoes = $permissoes;
 
     }
 
