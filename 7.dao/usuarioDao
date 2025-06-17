@@ -33,7 +33,7 @@ class usuarioDao{
     }
 
 
-     public function read(){
+    public function read(){
         $url = "http://localhost:3000/usuarios";
         $result = file_get_contents($url);
         $userList = array();

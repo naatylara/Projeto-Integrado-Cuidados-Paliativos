@@ -99,8 +99,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label for="usuario" class="form-label">Usuário</label>
-                                        <input type="text" class="form-control" id="usuario" name="usuario" required>
+                                        <label for="user" class="form-label">Usuário</label>
+                                        <input type="text" class="form-control" id="user" name="user" required> //AQUI TEM QUE ARRUMAR
                                     </div>
                                     <div class="mb-3 col-md-3">
                                         <label for="senha" class="form-label">Senha</label>

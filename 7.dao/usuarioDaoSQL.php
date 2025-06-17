@@ -4,7 +4,7 @@ class usuarioDao{
     public function inserir(usuario $user){
         try{
             $sql = "INSERT INTO usuario (nome, data_nascimento, cidade, estado, email, senha, cep, rua, complemento, numero, bairro, user)
-            VALUES(:nome, :data_nascimento, :cidade, :estado, :email, :senha, cep, :rua, :complemento, :numero, :bairro, :usuario);"; // create table no Querry do banco
+            VALUES(:nome, :data_nascimento, :cidade, :estado, :email, :senha, cep, :rua, :complemento, :numero, :bairro, :user);"; // create table no Querry do banco
             $con_sql = ConnectionFactory::getConnection()->prepare($sql);
             $con_sql -> bindValue(":nome", $user->getNomeCompleto());
             $con_sql -> bindValue(":data_nascimento", $user->getDataNascimento());
