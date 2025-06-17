@@ -3,34 +3,15 @@
 class Pessoa {
     private $nomeCompleto;
     private $dataNascimento;
-    private $cpf;
-    private $endereco;
-    private $telefone;
     private $cidade;
     private $estado;
+    private $cep;
+    private $rua;
+    private $numero;
+    private $complemento;
+    private $bairro;
 
-    /*public function __construct($nomeCompleto, $dataNascimento, $cpf, $endereco, $telefone) {
-        $this->nomeCompleto = $nomeCompleto;
-        $this->dataNascimento = $dataNascimento;
-        $this->cpf = $cpf;
-        $this->endereco = $endereco;
-        $this->telefone = $telefone;
-    }*/
-
-     public function getCidade() {
-        return $this->cidade;
-    }
-    public function setCidade($cidade) {
-        $this->cidade = $cidade;
-    }
-
-
-    public function getEstado() {
-        return $this->estado;
-    }
-    public function setEstado($estado) {
-        $this->estado = $estado;
-    }
+    // Getters e Setters
 
     public function getNomeCompleto() {
         return $this->nomeCompleto;
@@ -48,32 +29,66 @@ class Pessoa {
         $this->dataNascimento = $dataNascimento;
     }
 
-    public function getCpf() {
-        return $this->cpf;
+    public function getCidade() {
+        return $this->cidade;
     }
 
-    public function setCpf($cpf) {
-        $this->cpf = $cpf;
+    public function setCidade($cidade) {
+        $this->cidade = $cidade;
     }
 
-    public function getEndereco() {
-        return $this->endereco;
+    public function getEstado() {
+        return $this->estado;
     }
 
-    public function setEndereco($endereco) {
-        $this->endereco = $endereco;
+    public function setEstado($estado) {
+        $this->estado = $estado;
     }
 
-    public function getTelefone() {
-        return $this->telefone;
+    public function getCep() {
+        return $this->cep;
     }
 
-    public function setTelefone($telefone) {
-        $this->telefone = $telefone;
+    public function setCep($cep) {
+        $this->cep = $cep;
+    }
+
+    public function getRua() {
+        return $this->rua;
+    }
+
+    public function setRua($rua) {
+        $this->rua = $rua;
+    }
+
+    public function getNumero() {
+        return $this->numero;
+    }
+
+    public function setNumero($numero) {
+        $this->numero = $numero;
+    }
+
+    public function getComplemento() {
+        return $this->complemento;
+    }
+
+    public function setComplemento($complemento) {
+        $this->complemento = $complemento;
+    }
+
+    public function getBairro() {
+        return $this->bairro;
+    }
+
+    public function setBairro($bairro) {
+        $this->bairro = $bairro;
     }
 
     public function __toString() {
-        return "Pessoa - Nome Completo: {$this->nomeCompleto}, Data Nascimento: {$this->dataNascimento}, Cpf: {$this->cpf}, Endereço: {$this->endereco}, Telefone: {$this->telefone}";
+        return "Pessoa - Nome Completo: {$this->nomeCompleto}, Data Nascimento: {$this->dataNascimento}, " .
+               "Cidade: {$this->cidade}, Estado: {$this->estado}, CEP: {$this->cep}, Rua: {$this->rua}, Número: {$this->numero}, " .
+               "Complemento: {$this->complemento}, Bairro: {$this->bairro}";
     }
 }
 

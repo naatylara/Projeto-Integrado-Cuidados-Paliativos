@@ -1,12 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primeiro Acesso - Cadastro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+     <!--BOOTSTRAP ICONS--> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!--BOOTSTRAP--> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--CSS--> <link rel="stylesheet" href="assets/css/style.css"> 
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.jpg">
+    <title>Primeiro Acesso</title>
+    
     
     <style>
         body {
@@ -54,7 +57,7 @@
 </head>
 <body>
      <!-- Cabeçalho -->
-    <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top border-bottom">
+    <header class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top border-bottom">
         <div class="container-fluid">
         <!-- Logo / Marca -->
         <a href="1.index.html" class="navbar-brand fw-bold text-primary fs-3">
@@ -65,6 +68,18 @@
 
     <!-- Formulário de Cadastro -->
     <section class="py-5">
+        <?php
+        
+        if(isset($_GET['editar'])){
+    $idUsuario = $_GET['editar'];
+    $usuario = $usuarioDao->buscarPorId($idUsuario);
+    if(!isset($usuario)){
+        echo "<p>Usuario de Id {$idUsuario} não encontrado. </p>";
+        header("Location: ../1.index.php?erro=nao_encontrado");
+    }
+    }
+        
+        ?>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -84,8 +99,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label for="usuario" class="form-label">Usuário</label>
-                                        <input type="text" class="form-control" id="usuario" name="usuario" required>
+                                        <label for="user" class="form-label">Usuário</label>
+                                        <input type="text" class="form-control" id="user" name="user" required> //AQUI TEM QUE ARRUMAR
                                     </div>
                                     <div class="mb-3 col-md-3">
                                         <label for="senha" class="form-label">Senha</label>

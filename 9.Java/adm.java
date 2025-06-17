@@ -9,6 +9,8 @@ public class adm extends usuario{
 			String estado, int id, String email, String user, String senha) {
 		super(nomeCompleto, dataNascimento, cpf, endereco, telefone, cidade, estado, id, email, user, senha);
 	}
+
+	
 	
 	
 }

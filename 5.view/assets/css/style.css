@@ -1,6 +1,6 @@
 /* Alinhamento do título na hero section */
 .hero-section {
-    background-color: #6c63ff;
+    background-color: #0a7ac6;
     min-height: 100vh;  /* Garante que ocupe a altura mínima da tela */
     display: flex;
     justify-content: center;
@@ -10,17 +10,16 @@
 
 /* Estilo para o formulário */
 form {
-    border: 2px solid #6c63ff;
+    border: 2px ;
     padding: 20px;
     border-radius: 10px;
-    background-color: #ffffff;  /* Cor de fundo do formulário */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombras sutis */
 }
 
 form input:focus,
 form textarea:focus {
     outline: none;
-    border-color: #4e4bff;  /* Cor da borda ao focar */
+    border-color: #0a7ac6;  /* Cor da borda ao focar */
     box-shadow: 0 0 8px rgba(78, 75, 255, 0.6);  /* Efeito de foco */
 }
 
@@ -31,7 +30,7 @@ form textarea:focus {
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: #ffffff;  /* Cor de fundo para o navbar */
+    background-color: #c7deee;  /* Cor de fundo para o navbar */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Sombras sutis */
 }
 
@@ -42,8 +41,8 @@ form textarea:focus {
 }
 
 .navbar a:hover {
-    color: #4e4bff;
-    background-color: #ffffff;  /* Efeito de hover */
+    color: #0a7ac6;
+    background-color: #c7deee;  /* Efeito de hover */
 }
 /* Ajusta o texto do título */
 h1, h2, h3 {
@@ -79,6 +78,7 @@ h3 {
 }
 body {
     padding-top: 70px;
+    background-color: #f0e9e4;
   }
 
   .no-outline:focus,
@@ -115,8 +115,3 @@ body {
     padding-left: 70px;  /* ajuste a margem mínima que quiser */
     padding-right: 70px;
   }
-
-
-
-  
-  

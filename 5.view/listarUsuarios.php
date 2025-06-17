@@ -1,11 +1,5 @@
 <?php
-include __DIR__ . '/../7.dao/ConnectionFactory.php';
-include __DIR__ . '/../7.dao/usuarioDao.php';
-include __DIR__ . '/../4.model/usuario.php';
-
-$usuarioDao = new usuarioDao();
-$usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
-
+require_once __DIR__ . '/../8.controller/usuarioController.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +10,6 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <?php
-    if(isset($_GET['editar'])){
-        echo "chamou via editar"; //Apenas para teste
-        require_once '8.controller/usuarioController.php';
-
-    } 
-    ?>
 <div class="container mt-4">
     <h2>Usuários cadastrados</h2>
     <table class="table table-striped table-bordered">
@@ -38,24 +25,7 @@ $usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
             </tr>
         </thead>
         <tbody>
-            <?php
-            if ($usuarios && count($usuarios) > 0) {
-                foreach ($usuarios as $user) {
-                    echo "<tr>";
-                    echo "<td>" . htmlspecialchars($user->getId()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getNomeCompleto()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getDataNascimento()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getCidade()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getEstado()) . "</td>";
-                    echo "<td>" . htmlspecialchars($user->getEmail()) . "</td>";
-                    echo "<td>";echo "<a href='?editar=" . urlencode($user->getId()) . "' class='btn btn-primary btn-sm'>Editar</a>";echo "</td>";
-                    echo "<td>"; echo "<a href='?excluir=" . urlencode($user->getId()) . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Tem certeza que deseja excluir este usuário?\")'>Excluir</a>";echo "</td>";
-                    echo "</tr>";
-                }
-            } else {
-                echo '<tr><td colspan="5">Nenhum usuário cadastrado.</td></tr>';
-            }
-            ?>
+            <?php listar(); ?>
         </tbody>
     </table>
 </div>
