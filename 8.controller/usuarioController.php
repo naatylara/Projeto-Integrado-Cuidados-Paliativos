@@ -2,7 +2,7 @@
 //include __DIR__. '/../7.dao/ConnectionFactory.php';
 //include __DIR__. '/../7.dao/usuarioDaoSQL.php';
 include __DIR__ . '/../4.model/usuario.php';
-include __DIR__ . '/../7.dao/usuarioDao';
+include __DIR__ . '/../7.dao/usuarioDao.php';
 
 //ESTÁ ALTERADO
 $usuarioDao = new usuarioDao();
