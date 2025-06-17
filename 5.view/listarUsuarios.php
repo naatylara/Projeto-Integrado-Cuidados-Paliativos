@@ -1,13 +1,5 @@
 <?php
-//include __DIR__ . '/../7.dao/ConnectionFactory.php';    
-//include __DIR__ . '/../7.dao/usuarioDao.php';
-include __DIR__ . '/../4.model/usuario.php';
-//include __DIR__ . '/../7.dao/usuarioDaoSQL.php';
-
-
-//$usuarioDao = new usuarioDao();
-//$usuarios = $usuarioDao->read();  // pega lista de objetos Usuario
-
+require_once __DIR__ . '/../8.controller/usuarioController.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +10,6 @@ include __DIR__ . '/../4.model/usuario.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <?php
-    if(isset($_GET['editar'])){
-        echo "chamou via editar"; //Apenas para teste
-        require_once '8.controller/usuarioController.php';
-
-    } 
-    ?>
 <div class="container mt-4">
     <h2>Usuários cadastrados</h2>
     <table class="table table-striped table-bordered">
@@ -40,13 +25,7 @@ include __DIR__ . '/../4.model/usuario.php';
             </tr>
         </thead>
         <tbody>
-            <?php
-                if($_SERVER["REQUEST_METHOD"] == "GET"){
-                    require_once __DIR__ . '/../8.controller/usuarioController.php';
-                    echo "teste";
-                    listar();
-                }
-            ?>
+            <?php listar(); ?>
         </tbody>
     </table>
 </div>

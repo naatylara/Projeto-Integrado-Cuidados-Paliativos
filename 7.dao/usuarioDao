@@ -10,9 +10,15 @@ class usuarioDao{
             "cidade" => $user->getCidade(),
             "estado"=> $user->getEstado(),
             "email"=>$user->getEmail(),
-            "senha"=>$user->getSenha()
+            "senha"=>$user->getSenha(),
+            "cep"=>$user->getCep(),
+            "rua"=>$user->getRua(),
+            "complemento"=>$user->getComplemento(),
+            "numero"=>$user->getNumero(),
+            "bairro"=>$user->getBairro(),
+            "user"=>$user->getUser()
         ];
-
+        
           $options = [               //Aqui é padrão(utiliza em qualquer API)
             "http" => [
                 "header"  => "Content-Type: application/json\r\n",
@@ -47,6 +53,13 @@ class usuarioDao{
         $usuario->setEstado(htmlspecialchars($row['estado']));
         $usuario->setEmail(htmlspecialchars($row['email']));
         $usuario->setSenha(htmlspecialchars($row['senha']));
+        $usuario->setCep(htmlspecialchars($row['cep']));
+        $usuario->setRua(htmlspecialchars($row['rua']));
+        $usuario->setComplemento(htmlspecialchars($row['complemento']));
+        $usuario->setNumero(htmlspecialchars($row['numero']));
+        $usuario->setBairro(htmlspecialchars($row['bairro']));
+        $usuario->setUser(htmlspecialchars($row['user']));
+
         return $usuario;
     }
 
@@ -58,7 +71,14 @@ class usuarioDao{
             "cidade"=> $user->getCidade(),
             "estado"=> $user->getEstado(),
             "email"=> $user->getEmail(),
-            "senha"=> $user->getSenha()
+            "senha"=> $user->getSenha(),
+            "cep"=>$user->getCep(),
+            "rua"=>$user->getRua(),
+            "complemento"=>$user->getComplemento(),
+            "numero"=>$user->getNumero(),
+            "bairro"=>$user->getBairro(),
+            "user"=>$user->getUser()
+
         ];
 
         $options = [
@@ -99,11 +119,4 @@ class usuarioDao{
         }
     }
 }
-
-
-
-
-
-
-
 ?>

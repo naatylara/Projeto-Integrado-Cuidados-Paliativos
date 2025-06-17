@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -67,6 +68,18 @@
 
     <!-- Formulário de Cadastro -->
     <section class="py-5">
+        <?php
+        
+        if(isset($_GET['editar'])){
+    $idUsuario = $_GET['editar'];
+    $usuario = $usuarioDao->buscarPorId($idUsuario);
+    if(!isset($usuario)){
+        echo "<p>Usuario de Id {$idUsuario} não encontrado. </p>";
+        header("Location: ../1.index.php?erro=nao_encontrado");
+    }
+    }
+        
+        ?>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
