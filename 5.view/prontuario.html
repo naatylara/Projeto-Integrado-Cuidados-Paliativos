@@ -1,0 +1,135 @@
+<main class="container mt-5 mb-5">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.jpg">
+    <style>
+      body {
+                      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                      background-color: #f8f9fa;
+                color: #333;
+                margin: 0;
+                padding: 0;
+              }
+
+              main.container {
+                background-color: #ffffff;
+                padding: 2rem;
+                border-radius: 16px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                max-width: 800px;
+                margin: 2rem auto;
+              }
+
+              h2 {
+                font-weight: bold;
+                color: #2c3e50;
+              }
+
+              label {
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+                color: #444;
+              }
+
+              input[type="text"],
+              input[type="number"],
+              textarea,
+              select {
+                width: 100%;
+                padding: 10px 14px;
+                border: 1px solid #ced4da;
+                border-radius: 8px;
+                background-color: #fff;
+                transition: border-color 0.3s ease;
+              }
+
+              input:focus,
+              textarea:focus,
+              select:focus {
+                border-color: #6c63ff;
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+              }
+
+              input[type="range"] {
+                width: 100%;
+                margin-top: 5px;
+              }
+
+              .btn-primary {
+                background-color: #6c63ff;
+                border: none;
+                padding: 10px 20px;
+                font-weight: bold;
+                border-radius: 10px;
+                transition: background-color 0.3s ease;
+              }
+
+              .btn-primary:hover {
+                background-color: #5548d6;
+              }
+
+              .text-center {
+                text-align: center;
+              }
+
+              @media (max-width: 768px) {
+                main.container {
+                  padding: 1rem;
+                }
+              }
+
+    </style>
+
+    <h2 class="text-center mb-4">Prontuário Pessoal - Cuidados Paliativos</h2>
+
+    <form>
+      <div class="row mb-3">
+
+        <div class="col-md-6">
+          <label for="idade" class="form-label">Idade</label>
+          <input type="number" class="form-control" id="idade" name="idade" required>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="diagnostico" class="form-label">Diagnóstico Clínico (se houver)</label>
+        <input type="text" class="form-control" id="diagnostico" name="diagnostico">
+      </div>
+  
+      <div class="mb-3">
+        <label for="sintomas" class="form-label">Quais sintomas você está sentindo?</label>
+        <textarea class="form-control" id="sintomas" name="sintomas" rows="4" placeholder="Ex: dor, falta de ar, fraqueza, etc." required></textarea>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Nível de dor (0 = nenhuma, 10 = insuportável)</label>
+        <input type="range" class="form-range" min="0" max="10" id="nivelDor" name="nivelDor">
+      </div>
+  
+      <div class="mb-3">
+        <label for="emocional" class="form-label">Como está seu estado emocional?</label>
+        <select class="form-select" id="emocional" name="emocional">
+          <option value="bem">Bem</option>
+          <option value="triste">Triste</option>
+          <option value="ansioso">Ansioso</option>
+          <option value="deprimido">Deprimido</option>
+          <option value="semresposta">Prefiro não responder</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label for="ajuda" class="form-label">Você sente que precisa de ajuda médica neste momento?</label>
+        <select class="form-select" id="ajuda" name="ajuda" required>
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+          <option value="naosei">Não sei dizer</option>
+        </select>
+      </div>
+  
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Enviar Prontuário</button>
+      </div>
+    </form>
+  </main>
+  
