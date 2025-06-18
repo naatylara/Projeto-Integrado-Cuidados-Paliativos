@@ -86,6 +86,8 @@
                     <div class="card card-cadastro bg-white">
                         <h3 class="text-center mb-4">Primeiro Acesso</h3>                        
                         <form action="../8.controller/usuarioController.php" method="POST"> 
+                            <input type="hidden" name="id" 
+                            value="<?= isset($usuario) && $usuario->getId() ? $usuario->getId() : '' ?>">
                             <!-- Dados Pessoais -->                            
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
@@ -167,8 +169,11 @@
                                 </div>
                                 <p id="mensagem-erro" style="color: red; display: none;">CEP não encontrado</p>
                             </div>
-
-                            <button type="submit" class="btn btn-success w-100 mt-3" name ="cadastrar">Cadastrar</button>
+                            <?php if(isset($usuario) && $usuario->getId()): ?>
+                                <button type="submit" class="btn btn-primary w-100 mt-3" name="salvar_edicao">Salvar Edição</button>
+                            <?php else: ?>
+                                <button type="submit" class="btn btn-success w-100 mt-3" name="cadastrar">Cadastrar</button>
+                            <?php endif; ?>
                         </form>
 
                         <div class="text-center mt-3">
