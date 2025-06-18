@@ -43,7 +43,6 @@ class admDao {
     }
 
     public function listaAdms($linha){
-       
         $adm = new adm($linha['permissoes']);  //Ver com a juliana!
         $adm->setId($linha['id']);
         $adm->setNomeCompleto($linha['nomeCompleto']);

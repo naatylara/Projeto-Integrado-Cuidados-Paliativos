@@ -61,9 +61,8 @@ function listar(){
 
     $usuarioDao = new usuarioDao();
     $lista = $usuarioDao->read();
-
     foreach($lista as $user){
-
+        
         echo "<tr>
                 <td>{$user->getId()}</td>
                 <td>{$user->getNomeCompleto()}</td>
@@ -74,15 +73,33 @@ function listar(){
 
                 <td>
                     <a href='6.primeiro_acesso.php?editar={$user->getId()}'class = 'btn btn-primary'> 
-                <i class='bi bi-pencil-square'></i> 
-                Editar</a> 
-                <a href='1.index.html?excluir={$user->getId()}' class='btn btn-danger'> 
+                <i class='bi bi-pencil-square'></i>
+                Editar</a>
+
+                    <a href='../8.controller/usuarioController.php?excluir={$user->getId()}' class='btn btn-danger'> 
                 <i class='bi bi-trash'></i>
-                Exluir</a> 
+                Exluir</a>
 
                 </td>
             </tr>";
     }
+
 }
+
+if(isset($_GET['excluir'])){
+    $idUsuario = $_GET['excluir'];
+    $usuario = $usuarioDao->buscarPorId($idUsuario);
+    if(!isset($usuario)){
+        echo "<p>Usuario de Id {$idUsuario} não encontrado. </p>";
+        header("Location: ../1.index.php?erro=nao_encontrado");
+
+    } else {
+
+        $usuarioDao->excluir($idUsuario);
+        header("Location: ../5.view/listarUsuarios.php?excluido={$idUsuario}");
+    
+    }
+}
+
 
 ?>
