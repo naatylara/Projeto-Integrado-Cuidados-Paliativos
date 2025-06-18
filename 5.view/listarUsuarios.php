@@ -12,6 +12,7 @@ require_once __DIR__ . '/../8.controller/usuarioController.php';
 <body>
 <div class="container mt-4">
     <h2>Usuários cadastrados</h2>
+
     <table class="table table-striped table-bordered">
         <thead>
             <tr>

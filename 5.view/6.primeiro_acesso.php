@@ -69,7 +69,8 @@
     <!-- Formulário de Cadastro -->
     <section class="py-5">
         <?php
-        
+        require_once __DIR__ . '/../7.dao/usuarioDao.php';
+        $usuarioDao = new usuarioDao();
         if(isset($_GET['editar'])){
     $idUsuario = $_GET['editar'];
     $usuario = $usuarioDao->buscarPorId($idUsuario);
@@ -78,8 +79,7 @@
         header("Location: ../1.index.php?erro=nao_encontrado");
     }
     }
-        
-        ?>
+     ?>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -90,21 +90,25 @@
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label for="nome" class="form-label">Nome Completo</label>
-                                        <input type="text" class="form-control" id="nome" name="nome" required>
+                                        <input type="text" class="form-control" id="nome" name="nome" 
+                                        value="<?= isset($usuario) && $usuario->getNomeCompleto() ? $usuario->getNomeCompleto() : '' ?>"required>
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label for="email" class="form-label">E-mail</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        <input type="email" class="form-control" id="email" name="email" 
+                                        value="<?= isset($usuario) && $usuario->getEmail() ? $usuario->getEmail() : '' ?>"required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label for="user" class="form-label">Usuário</label>
-                                        <input type="text" class="form-control" id="user" name="user" required> //AQUI TEM QUE ARRUMAR
+                                        <input type="text" class="form-control" id="user" name="user" 
+                                        value="<?= isset($usuario) && $usuario->getUser() ? $usuario->getUser() : '' ?>"required> //AQUI TEM QUE ARRUMAR
                                     </div>
                                     <div class="mb-3 col-md-3">
                                         <label for="senha" class="form-label">Senha</label>
-                                        <input type="password" class="form-control" id="senha" name="senha" required>
+                                        <input type="password" class="form-control" id="senha" name="senha" 
+                                        value="<?= isset($usuario) && $usuario->getSenha() ? $usuario->getSenha() : '' ?>"required>
                                     </div>
                                     <div class="mb-3 col-md-3">
                                         <label for="confirmar_senha" class="form-label">Confirmar Senha</label>
@@ -114,7 +118,8 @@
                                 <div class="row">
                                     <div class="mb-3 col-md-4">
                                         <label for="data_nascimento" class="form-label">Data de Nascimento</label>
-                                        <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+                                        <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" 
+                                        value="<?= isset($usuario) && $usuario->getDataNascimento() ? $usuario->getDataNascimento() : '' ?>"required>
                                     </div>
                                 </div>
 
@@ -123,35 +128,42 @@
                             <div class="row">
                                 <div class="mb-3 col-md-4">
                                     <label for="cep" class="form-label">CEP</label>
-                                    <input type="text" class="form-control" id="cep" name="cep" required maxlength="8">
+                                    <input type="text" class="form-control" id="cep" name="cep" 
+                                    value="<?= isset($usuario) && $usuario->getCep() ? $usuario->getCep() : '' ?>"required maxlength="8">
                                 </div>
                                 <div class="mb-3 col-md-8">
                                     <label for="rua" class="form-label">Rua</label>
-                                    <input type="text" class="form-control" id="rua" name="rua" required>
+                                    <input type="text" class="form-control" id="rua" name="rua" 
+                                    value="<?= isset($usuario) && $usuario->getRua() ? $usuario->getRua() : '' ?>"required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-md-3">
                                     <label for="numero" class="form-label">Número</label>
-                                    <input type="text" class="form-control" id="numero" name="numero" required>
+                                    <input type="text" class="form-control" id="numero" name="numero" 
+                                    value="<?= isset($usuario) && $usuario->getNumero() ? $usuario->getNumero() : '' ?>"required>
                                 </div>
                                 <div class="mb-3 col-md-5">
                                     <label for="complemento" class="form-label">Complemento</label>
-                                    <input type="text" class="form-control" id="complemento" name="complemento">
+                                    <input type="text" class="form-control" id="complemento" name="complemento"
+                                    value="<?= isset($usuario) && $usuario->getComplemento() ? $usuario->getComplemento() : '' ?>">
                                 </div>
                                 <div class="mb-3 col-md-4">
                                     <label for="bairro" class="form-label">Bairro</label>
-                                    <input type="text" class="form-control" id="bairro" name="bairro" required>
+                                    <input type="text" class="form-control" id="bairro" name="bairro" 
+                                    value="<?= isset($usuario) && $usuario->getBairro() ? $usuario->getBairro() : '' ?>"required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col-md-6">
                                     <label for="cidade" class="form-label">Cidade</label>
-                                    <input type="text" class="form-control" id="cidade" name="cidade" required>
+                                    <input type="text" class="form-control" id="cidade" name="cidade" 
+                                    value="<?= isset($usuario) && $usuario->getCidade() ? $usuario->getCidade() : '' ?>"required>
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="estado" class="form-label">Estado</label>
-                                    <input type="text" class="form-control" id="estado" name="estado" required>
+                                    <input type="text" class="form-control" id="estado" name="estado" 
+                                    value="<?= isset($usuario) && $usuario->getEstado() ? $usuario->getEstado() : '' ?>"required>
                                 </div>
                                 <p id="mensagem-erro" style="color: red; display: none;">CEP não encontrado</p>
                             </div>

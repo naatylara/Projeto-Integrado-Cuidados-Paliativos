@@ -118,5 +118,28 @@ class usuarioDao{
             return null;
         }
     }
+
+    public function excluir($id){
+//fazer validaçãod e busca por id
+        $url = "http://localhost:3000/usuarios/". urldecode(($id));
+
+        $options = [
+            "http" => [
+
+                "header"  => "Content-Type: application/json\r\n",
+                "method"  => "DELETE",
+            
+            ]
+        ];
+
+        $context = stream_context_create($options);      
+        $result = file_get_contents($url, false, $context);
+        
+        if ($result === FALSE) {
+            return ["erro" => "Falha na requisição PATCH"];
+        }
+
+
+    }
 }
 ?>

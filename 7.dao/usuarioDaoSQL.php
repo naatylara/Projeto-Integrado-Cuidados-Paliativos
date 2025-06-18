@@ -1,5 +1,6 @@
 <?php
-//JÁ ESTÁ ALTERADO
+require_once __DIR__ . '7.dao/usuarioDao.php';
+
 class usuarioDao{
     public function inserir(usuario $user){
         try{
