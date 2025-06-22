@@ -31,6 +31,7 @@ if(isset($_GET['editar'])){
 if(isset($_POST['salvar_edicao'])){
 
     $atendimento = new atendimento();
+    $atendimento->setId($_POST['id']);
     $atendimento->setDoenca($_POST['doenca']);
     $atendimento->setUsuarioId($_POST['usuarioId']);
     $atendimento->setData($_POST['data']);
