@@ -1,4 +1,5 @@
 public class Atendimento {
+    private int id;
     private String doenca;
     private int usuarioId;
     private String data;
@@ -9,6 +10,16 @@ public class Atendimento {
         this.usuarioId = usuarioId;
         this.data = data;
         this.sintomas = sintomas;
+    }
+
+    public int getId(){
+
+        return id;
+    }
+
+    public void setId(int id){
+
+        this.id = id;
     }
 
     public String getDoenca() {
