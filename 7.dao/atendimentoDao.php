@@ -5,6 +5,7 @@ class atendimentoDao{
     public function inserir(atendimento $atend){
         $url = "http://localhost:3000/atendimentos";
         $dados = [
+            "id" => $atend->getId(),
             "doenca" => $atend->getDoenca(),
             "usuarioId"=> $atend->getUsuarioId(),
             "data" => $atend->getData(),
@@ -39,29 +40,22 @@ class atendimentoDao{
     public function listaAtendimentos($row){
         $atendimento = new atendimento();
         $atendimento->setId(htmlspecialchars($row['id']));
-        $atendimento->setNomeCompleto(htmlspecialchars($row['nome']));
-        $atendimento->setDataNascimento(htmlspecialchars($row['data_nascimento']));
-        $atendimento->setCidade(htmlspecialchars($row['cidade']));
+        $atendimento->setDoenca(htmlspecialchars($row['doenca']));
+        $atendimento->setUsuarioId(htmlspecialchars($row['usuarioId']));
+        $atendimento->setData(htmlspecialchars($row['data']));
+        $atendimento->setSintomas(htmlspecialchars($row['sintomas']));
     
-
         return $atendimento;
     }
 
-    public function editar(usuario $user){
-        $url = "http://localhost:3000/usuarios/".$user->getId();
+    public function editar(atendimento $atend){
+        $url = "http://localhost:3000/atendimentos/".$atend->getId();
         $dados = [
-            "nome" => $user->getNomeCompleto(),
-            "data_nascimento" => $user->getDataNascimento(),
-            "cidade"=> $user->getCidade(),
-            "estado"=> $user->getEstado(),
-            "email"=> $user->getEmail(),
-            "senha"=> $user->getSenha(),
-            "cep"=>$user->getCep(),
-            "rua"=>$user->getRua(),
-            "complemento"=>$user->getComplemento(),
-            "numero"=>$user->getNumero(),
-            "bairro"=>$user->getBairro(),
-            "user"=>$user->getUser()
+            "id" => $atend->getId(),
+            "doenca" => $atend->getDoenca(),
+            "usuarioId"=> $atend->getUsuarioId(),
+            "data" => $atend->getData(),
+            "sintomas"=> $atend->getSintomas(),
 
         ];
 
@@ -85,7 +79,7 @@ class atendimentoDao{
     }
 
     public function buscarPorId($id){
-        $url = "http://localhost:3000/usuarios/" . urlencode($id);
+        $url = "http://localhost:3000/atendimentos/" . urlencode($id);
         try {
             // @file_get_contents() para evitar warnings automáticos.
             $response = @file_get_contents($url);
@@ -94,7 +88,7 @@ class atendimentoDao{
             }
             $data = json_decode($response, true);
             if ($data) {
-                return $this->listaUsuarios($data);
+                return $this->listaAtendimentos($data);
             }
             return null;
         } catch (Exception $e) {
@@ -105,7 +99,7 @@ class atendimentoDao{
 
     public function excluir($id){
 //fazer validaçãod e busca por id
-        $url = "http://localhost:3000/usuarios/". urldecode(($id));
+        $url = "http://localhost:3000/atendimentos/". urldecode(($id));
 
         $options = [
             "http" => [
@@ -122,8 +116,6 @@ class atendimentoDao{
         if ($result === FALSE) {
             return ["erro" => "Falha na requisição PATCH"];
         }
-
-
     }
 }
 ?>
