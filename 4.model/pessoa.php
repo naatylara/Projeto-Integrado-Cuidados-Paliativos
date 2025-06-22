@@ -1,6 +1,6 @@
 <?php
 
-class Pessoa {
+class pessoa {
     private $nomeCompleto;
     private $dataNascimento;
     private $cidade;
