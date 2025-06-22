@@ -15,7 +15,7 @@ if(isset($_POST['cadastrar'])){
     $atendimento->setSintomas($_POST['sintomas']);
 
     $atendimentoDao->inserir($atendimento);
-    header("Location: /Projeto-Integrado-Cuidados-Paliativos/5.view/1.index.html");
+    header(("Location: ../5.view/resultadoProntuario.php"));
     exit();
 }
 
