@@ -11,12 +11,12 @@ require_once __DIR__ . '/../8.controller/atendimentoController.php';
 </head>
 <body>
 <div class="container mt-4">
-    <h2>Usuários cadastrados</h2>
+    <h2>Atendimentos feitos</h2>
 
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                
+
                 <th>ID</th>
                 <th>Doença</th>
                 <th>UsuarioId</th>
