@@ -1,10 +1,21 @@
 <?php
 
 class atendimento {
+    private $id;
     private $doenca;
     private $usuarioId;
     private $data;
     private $sintomas;
+
+    public function getId() {
+
+        return $this ->id;
+    }
+
+    public function setId($id){
+
+        $this->id = $id;
+    }
 
     public function getDoenca() {
         return $this->doenca;
