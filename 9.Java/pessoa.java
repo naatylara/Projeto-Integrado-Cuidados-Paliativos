@@ -1,89 +1,109 @@
-public class pessoa {
-	private String nomeCompleto;
-	private String dataNascimento;
-	private String cpf;
-	private String endereco;
-	private String telefone;
-	private String cidade;
-	private String estado;
-	
-	public pessoa() {
-		
-		
-	}
+public class Pessoa {
+    private String nomeCompleto;
+    private String dataNascimento;
+    private String cidade;
+    private String estado;
+    private String cep;
+    private String rua;
+    private String numero;
+    private String complemento;
+    private String bairro;
 
-	public pessoa(String nomeCompleto, String dataNascimento, String cpf, String endereco, String telefone,
-			String cidade, String estado) {
-		
-		this.nomeCompleto = nomeCompleto;
-		this.dataNascimento = dataNascimento;
-		this.cpf = cpf;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.cidade = cidade;
-		this.estado = estado;
-	}
+    public Pessoa(String nomeCompleto, String dataNascimento, String cidade, String estado, String cep,
+                  String rua, String numero, String complemento, String bairro) {
+        this.nomeCompleto = nomeCompleto;
+        this.dataNascimento = dataNascimento;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.cep = cep;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.bairro = bairro;
+    }
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
-	}
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
 
-	public String getDataNascimento() {
-		return dataNascimento;
-	}
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
 
-	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 
-	public String getCpf() {
-		return cpf;
-	}
+    public String getCidade() {
+        return cidade;
+    }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public String getEstado() {
+        return estado;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
-	public String getTelefone() {
-		return telefone;
-	}
+    public String getCep() {
+        return cep;
+    }
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
-	public String getCidade() {
-		return cidade;
-	}
+    public String getRua() {
+        return rua;
+    }
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
 
-	public String getEstado() {
-		return estado;
-	}
+    public String getNumero() {
+        return numero;
+    }
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
-	@Override
-	public String toString() {
-		return "pessoa [nomeCompleto=" + nomeCompleto + ", dataNascimento=" + dataNascimento + ", cpf=" + cpf
-				+ ", endereco=" + endereco + ", telefone=" + telefone + ", cidade=" + cidade + ", estado=" + estado
-				+ "]";
-	}
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa - Nome Completo: " + nomeCompleto +
+               ", Data Nascimento: " + dataNascimento +
+               ", Cidade: " + cidade +
+               ", Estado: " + estado +
+               ", CEP: " + cep +
+               ", Rua: " + rua +
+               ", Número: " + numero +
+               ", Complemento: " + complemento +
+               ", Bairro: " + bairro;
+    }
 }
