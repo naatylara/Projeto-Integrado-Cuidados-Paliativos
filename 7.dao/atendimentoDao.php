@@ -1,121 +1,184 @@
 <?php
+// 7.dao/atendimentoDao.php
 require_once '../4.model/atendimento.php';
-class atendimentoDao{
+
+class atendimentoDao {
 
     public function inserir(atendimento $atend){
         $url = "http://localhost:3000/atendimentos";
         $dados = [
-            "id" => $atend->getId(),
             "doenca" => $atend->getDoenca(),
-            "usuarioId"=> $atend->getUsuarioId(),
+            "usuario_id"=> $atend->getUsuarioId(), 
             "data" => $atend->getData(),
-            "sintomas"=> $atend->getSintomas(),
+            "sintomas"=> json_decode($atend->getSintomas(), true), 
         ];
         
-          $options = [               //Aqui é padrão(utiliza em qualquer API)
+        $options = [
             "http" => [
                 "header"  => "Content-Type: application/json\r\n",
                 "method"  => "POST",
-                "content" => json_encode($dados)
+                "content" => json_encode($dados),
+                "ignore_errors" => true 
             ]
         ];
 
-        $context = stream_context_create($options);     //stream é uma conexão onde você recebe e manda dados
-        $result = file_get_contents($url, false, $context);
-        return $result ? json_decode($result, true) : false;
-    }
+        $context = stream_context_create($options);
+        $result = @file_get_contents($url, false, $context);
 
+        if ($result === FALSE) {
+            error_log("Erro ao acessar a API (inserir): " . error_get_last()['message']);
+            return false;
+        }
+
+        $http_status = $http_response_header[0] ?? null;
+        if (strpos($http_status, '201 Created') === false) { 
+            error_log("API de inserção retornou erro: " . $http_status . " - " . $result);
+            return false;
+        }
+        return json_decode($result, true); 
+    }
 
     public function read(){
         $url = "http://localhost:3000/atendimentos";
-        $result = file_get_contents($url);
-        $atendList = array();
+        $options = [
+            "http" => [
+                "ignore_errors" => true 
+            ]
+        ];
+        $context = stream_context_create($options);
+        $result = @file_get_contents($url, false, $context);
+        
+        if ($result === FALSE) {
+            error_log("Erro ao acessar a API (read): " . error_get_last()['message']);
+            return [];
+        }
+
+        $http_status = $http_response_header[0] ?? null;
+        if (strpos($http_status, '200 OK') === false) {
+            error_log("API de listagem retornou erro: " . $http_status . " - " . $result);
+            return [];
+        }
+
+        $atendList = [];
         $lista = json_decode($result, true);
-        foreach ($lista as $atend):
-            $atendList[] = $this->listaAtendimentos($atend);
-        endforeach;
+
+        if (is_array($lista)) {
+            foreach ($lista as $atend){
+                $atendList[] = $this->listaAtendimentos($atend);
+            }
+        }
         return $atendList;
     }
 
     public function listaAtendimentos($row){
         $atendimento = new atendimento();
-        $atendimento->setId(htmlspecialchars($row['id']));
-        $atendimento->setDoenca(htmlspecialchars($row['doenca']));
-        $atendimento->setUsuarioId(htmlspecialchars($row['usuarioId']));
-        $atendimento->setData(htmlspecialchars($row['data']));
-        $atendimento->setSintomas(htmlspecialchars($row['sintomas']));
+        $atendimento->setId(htmlspecialchars($row['id'] ?? ''));
+        $atendimento->setDoenca(htmlspecialchars($row['doenca'] ?? ''));
+       
+        $atendimento->setUsuarioId(htmlspecialchars($row['usuario_id'] ?? '')); 
+        $atendimento->setData(htmlspecialchars($row['data'] ?? ''));
+
     
+        $sintomasDoApi = $row['sintomas'] ?? []; 
+        
+        $finalSintomas = [];
+        if (is_string($sintomasDoApi)) {
+            
+            $decoded = json_decode($sintomasDoApi, true);
+            $finalSintomas = is_array($decoded) ? $decoded : [];
+        } elseif (is_array($sintomasDoApi)) {
+            
+            $finalSintomas = $sintomasDoApi;
+        }
+
+        $atendimento->setSintomas($finalSintomas);
+        
         return $atendimento;
     }
 
     public function editar(atendimento $atend){
-        $url = "http://localhost:3000/atendimentos/".$atend->getId();
+        $url = "http://localhost:3000/atendimentos/" . urlencode($atend->getId());
         $dados = [
             "id" => $atend->getId(),
             "doenca" => $atend->getDoenca(),
-            "usuarioId"=> $atend->getUsuarioId(),
+            "usuario_id"=> $atend->getUsuarioId(), 
             "data" => $atend->getData(),
-            "sintomas"=> $atend->getSintomas(),
-
+            "sintomas"=> json_decode($atend->getSintomas(), true), 
         ];
 
         $options = [
             "http" => [
                 "header"  => "Content-Type: application/json\r\n",
                 "method"  => "PUT",
-                "content" => json_encode($dados)
-                //,"ignore_errors" => true
+                "content" => json_encode($dados),
+                "ignore_errors" => true // Importante
             ]
         ];
 
-        $context = stream_context_create($options);      
-        $result = file_get_contents($url, false, $context);
-        
+        $context = stream_context_create($options);
+        $result = @file_get_contents($url, false, $context);
+
         if ($result === FALSE) {
-            return ["erro" => "Falha na requisição PATCH"];
+            error_log("Erro ao acessar a API (editar): " . error_get_last()['message']);
+            return false;
         }
 
-        return json_decode($result, true);
+        $http_status = $http_response_header[0] ?? null;
+        if (strpos($http_status, '200 OK') === false) {
+            error_log("API de edição retornou erro: " . $http_status . " - " . $result);
+            return false;
+        }
+        return json_decode($result, true); 
     }
 
     public function buscarPorId($id){
         $url = "http://localhost:3000/atendimentos/" . urlencode($id);
-        try {
-            // @file_get_contents() para evitar warnings automáticos.
-            $response = @file_get_contents($url);
-            if ($response === FALSE) {
-                return null; // ID não encontrado ou erro na requisição
-            }
-            $data = json_decode($response, true);
-            if ($data) {
-                return $this->listaAtendimentos($data);
-            }
-            return null;
-        } catch (Exception $e) {
-            echo "<p>Erro ao buscar usuário por ID: </p> <p>{$e->getMessage()}</p>";
+        $options = [
+            "http" => [
+                "ignore_errors" => true 
+            ]
+        ];
+        $context = stream_context_create($options);
+        $response = @file_get_contents($url, false, $context);
+        
+        if ($response === FALSE) {
+            error_log("Erro ao acessar a API (buscarPorId): " . error_get_last()['message']);
             return null;
         }
+
+        $http_status = $http_response_header[0] ?? null;
+        if (strpos($http_status, '200 OK') === false) {
+            error_log("API de busca por ID retornou erro: " . $http_status . " - " . $response);
+            return null; 
+        }
+
+        $data = json_decode($response, true);
+        if ($data) {
+            return $this->listaAtendimentos($data);
+        }
+        return null;
     }
 
     public function excluir($id){
-//fazer validaçãod e busca por id
-        $url = "http://localhost:3000/atendimentos/". urldecode(($id));
-
+        $url = "http://localhost:3000/atendimentos/" . urlencode($id);
         $options = [
             "http" => [
-
-                "header"  => "Content-Type: application/json\r\n",
                 "method"  => "DELETE",
-            
+                "ignore_errors" => true 
             ]
         ];
+        $context = stream_context_create($options);
+        $result = @file_get_contents($url, false, $context);
 
-        $context = stream_context_create($options);      
-        $result = file_get_contents($url, false, $context);
-        
         if ($result === FALSE) {
-            return ["erro" => "Falha na requisição PATCH"];
+            error_log("Erro ao acessar a API (excluir): " . error_get_last()['message']);
+            return false;
         }
-    }
+
+        $http_status = $http_response_header[0] ?? null;
+        if (strpos($http_status, '200 OK') === false && strpos($http_status, '204 No Content') === false) { // 204 para DELETE sem conteúdo
+            error_log("API de exclusão retornou erro: " . $http_status . " - " . $result);
+            return false;
+        }
+        return true; 
 }
-?>

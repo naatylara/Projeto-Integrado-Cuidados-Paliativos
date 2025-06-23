@@ -105,7 +105,7 @@
                                     <div class="mb-3 col-md-6">
                                         <label for="user" class="form-label">Usuário</label>
                                         <input type="text" class="form-control" id="user" name="user" 
-                                        value="<?= isset($usuario) && $usuario->getUser() ? $usuario->getUser() : '' ?>"required> //AQUI TEM QUE ARRUMAR
+                                        value="<?= isset($usuario) && $usuario->getUser() ? $usuario->getUser() : '' ?>"required> 
                                     </div>
                                     <div class="mb-3 col-md-3">
                                         <label for="senha" class="form-label">Senha</label>

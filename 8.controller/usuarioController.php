@@ -23,7 +23,7 @@ if(isset($_POST['cadastrar'])){
     $usuario->setUser($_POST['user']);
     
     $usuarioDao->inserir($usuario);
-    header("Location: /Projeto-Integrado-Cuidados-Paliativos/5.view/1.index.html");
+    header("Location: /Projeto-Integrado-Cuidados-Paliativos/5.view/prontuario.php");
     exit();
 }
 
