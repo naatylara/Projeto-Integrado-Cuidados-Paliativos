@@ -50,7 +50,7 @@ unset($_SESSION['mensagem_erro']);
     <?php endif; ?>
 
     <a href="1.index.html" class="btn btn-primary mb-3">
-        <i class="bi bi-plus-circle"></i> Voltar Para Página Principal
+        <i class="bi bi-plus-circle"></i> Voltar para Tela Inicial
     </a>
 
     <?php if (empty($listaAtendimentos)): ?>

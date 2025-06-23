@@ -8,9 +8,9 @@ class atendimentoDao {
         $url = "http://localhost:3000/atendimentos";
         $dados = [
             "doenca" => $atend->getDoenca(),
-            "usuario_id"=> $atend->getUsuarioId(), 
+            "usuario_id"=> $atend->getUsuarioId(), // Certifique-se que está 'usuario_id'
             "data" => $atend->getData(),
-            "sintomas"=> json_decode($atend->getSintomas(), true), 
+            "sintomas"=> json_decode($atend->getSintomas(), true), // Decodifica para array PHP antes de enviar
         ];
         
         $options = [
@@ -18,7 +18,7 @@ class atendimentoDao {
                 "header"  => "Content-Type: application/json\r\n",
                 "method"  => "POST",
                 "content" => json_encode($dados),
-                "ignore_errors" => true 
+                "ignore_errors" => true // Importante para pegar respostas de erro da API
             ]
         ];
 
@@ -31,18 +31,18 @@ class atendimentoDao {
         }
 
         $http_status = $http_response_header[0] ?? null;
-        if (strpos($http_status, '201 Created') === false) { 
+        if (strpos($http_status, '201 Created') === false) { // Verifica 201 Created para sucesso de POST
             error_log("API de inserção retornou erro: " . $http_status . " - " . $result);
             return false;
         }
-        return json_decode($result, true); 
+        return json_decode($result, true); // Retorna o objeto criado pela API
     }
 
     public function read(){
         $url = "http://localhost:3000/atendimentos";
         $options = [
             "http" => [
-                "ignore_errors" => true 
+                "ignore_errors" => true // Importante para pegar status de erro
             ]
         ];
         $context = stream_context_create($options);
@@ -74,20 +74,21 @@ class atendimentoDao {
         $atendimento = new atendimento();
         $atendimento->setId(htmlspecialchars($row['id'] ?? ''));
         $atendimento->setDoenca(htmlspecialchars($row['doenca'] ?? ''));
-       
+        // IMPORTANTE: use 'usuario_id' para corresponder à API Node.js
         $atendimento->setUsuarioId(htmlspecialchars($row['usuario_id'] ?? '')); 
         $atendimento->setData(htmlspecialchars($row['data'] ?? ''));
 
-    
-        $sintomasDoApi = $row['sintomas'] ?? []; 
+        // CORREÇÃO: Sintomas agora vêm da API já como um array PHP.
+        // Verificamos o tipo para garantir que a decodificação só ocorra se for uma string JSON.
+        $sintomasDoApi = $row['sintomas'] ?? []; // Assume que é um array vazio se não existir
         
         $finalSintomas = [];
         if (is_string($sintomasDoApi)) {
-            
+            // Se for uma string (caso a API ou dados anteriores sejam inconsistentes), decodifique
             $decoded = json_decode($sintomasDoApi, true);
             $finalSintomas = is_array($decoded) ? $decoded : [];
         } elseif (is_array($sintomasDoApi)) {
-            
+            // Se já for um array (o que é o esperado com a sua API atual), use-o diretamente
             $finalSintomas = $sintomasDoApi;
         }
 
@@ -101,9 +102,9 @@ class atendimentoDao {
         $dados = [
             "id" => $atend->getId(),
             "doenca" => $atend->getDoenca(),
-            "usuario_id"=> $atend->getUsuarioId(), 
+            "usuario_id"=> $atend->getUsuarioId(), // Certifique-se que está 'usuario_id'
             "data" => $atend->getData(),
-            "sintomas"=> json_decode($atend->getSintomas(), true), 
+            "sintomas"=> json_decode($atend->getSintomas(), true), // Decodifica para array PHP
         ];
 
         $options = [
@@ -128,14 +129,14 @@ class atendimentoDao {
             error_log("API de edição retornou erro: " . $http_status . " - " . $result);
             return false;
         }
-        return json_decode($result, true); 
+        return json_decode($result, true); // Retorna o objeto editado ou true
     }
 
     public function buscarPorId($id){
         $url = "http://localhost:3000/atendimentos/" . urlencode($id);
         $options = [
             "http" => [
-                "ignore_errors" => true 
+                "ignore_errors" => true // Importante para pegar status de erro
             ]
         ];
         $context = stream_context_create($options);
@@ -164,7 +165,7 @@ class atendimentoDao {
         $options = [
             "http" => [
                 "method"  => "DELETE",
-                "ignore_errors" => true 
+                "ignore_errors" => true // Importante
             ]
         ];
         $context = stream_context_create($options);
@@ -180,5 +181,6 @@ class atendimentoDao {
             error_log("API de exclusão retornou erro: " . $http_status . " - " . $result);
             return false;
         }
-        return true; 
+        return true; // Retorna true em caso de sucesso
+    }
 }
