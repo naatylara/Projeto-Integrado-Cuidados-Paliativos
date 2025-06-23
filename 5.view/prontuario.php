@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-3 col-lg-10">
-                    <div class="card card-login bg-white">
+                    <div class="card card-login bg-white"> 
                         <h2 class="text-center mb-4">
                             <i style="font-size: 2rem;"></i><br>
                             Prontuário
