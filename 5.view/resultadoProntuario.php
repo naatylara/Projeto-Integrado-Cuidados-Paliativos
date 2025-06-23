@@ -11,11 +11,12 @@
     <h1 class="mb-4">Resultado do Atendimento</h1>
 
     <?php
-    // Simular recebimento dos dados POST
+    // Recebe os dados do POST
     $doenca = $_POST['doenca'] ?? '';
     $sintomas = $_POST['sintomas'] ?? [];
+    $data = $_POST['data'] ?? '';
 
-    // Definição de doenças graves
+    // Lista das doenças graves
     $doencasGraves = [
         'cancer',
         'insuficiencia-cardiaca',
@@ -28,10 +29,9 @@
         'fibrose-pulmonar'
     ];
 
-    // Contagem dos sintomas
     $qtdSintomas = count($sintomas);
 
-    // Lógica de avaliação
+    // Avaliação do estado do paciente
     $estado = 'Sem preocupação';
     $mensagem = 'Paciente está estável. Não há necessidade de encaminhamento hospitalar no momento.';
 
@@ -42,9 +42,6 @@
         } elseif ($qtdSintomas > 0) {
             $estado = 'Mediano';
             $mensagem = 'Monitorar de perto. Avaliar necessidade de cuidados adicionais.';
-        } else {
-            $estado = 'Sem preocupação';
-            $mensagem = 'Paciente está estável. Não há necessidade de encaminhamento hospitalar no momento.';
         }
     } else {
         if ($qtdSintomas >= 3) {
@@ -52,31 +49,30 @@
             $mensagem = 'Monitorar de perto. Avaliar necessidade de cuidados adicionais.';
         }
     }
-
-    // Exibir resultado
     ?>
 
-    <div class="alert 
+    <div class="alert
         <?php
             if ($estado === 'Grave') echo 'alert-danger';
             elseif ($estado === 'Mediano') echo 'alert-warning';
             else echo 'alert-success';
         ?>
     ">
-        <h4 class="alert-heading">Estado do Paciente: <strong><?php echo $estado; ?></strong></h4>
-        <p><strong>Doença selecionada:</strong> <?php echo htmlspecialchars($doenca); ?></p>
-        <p><strong>Sintomas informados (<?php echo $qtdSintomas; ?>):</strong></p>
+        <h4 class="alert-heading">Estado do Paciente: <strong><?= htmlspecialchars($estado) ?></strong></h4>
+        <p><strong>Data do Atendimento:</strong> <?= htmlspecialchars($data) ?></p>
+        <p><strong>Doença selecionada:</strong> <?= htmlspecialchars($doenca) ?></p>
+        <p><strong>Sintomas informados (<?= $qtdSintomas ?>):</strong></p>
         <ul>
             <?php foreach ($sintomas as $sintoma): ?>
-                <li><?php echo htmlspecialchars($sintoma); ?></li>
+                <li><?= htmlspecialchars($sintoma) ?></li>
             <?php endforeach; ?>
         </ul>
 
         <hr>
-        <p class="mb-0"><strong><?php echo $mensagem; ?></strong></p>
+        <p><strong><?= htmlspecialchars($mensagem) ?></strong></p>
     </div>
 
-    <a href="formAtendimento.php" class="btn btn-secondary">Novo Atendimento</a>
+    <a href="prontuario.php" class="btn btn-secondary">Novo Atendimento</a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
