@@ -35,112 +35,135 @@ if (isset($_GET['editar'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><?= $atendimento ? "Editar Atendimento" : "Cadastrar Atendimento" ?></title>
+    <title>Cadastrar Atendimento</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
 <div class="container my-5">
 
-    <h1 class="mb-4"><?= $atendimento ? "Editar Atendimento" : "Cadastrar Atendimento" ?></h1>
+    <h1 class="mb-4">Cadastrar Atendimento</h1>
 
-    <?php if ($mensagemSucesso): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?= htmlspecialchars($mensagemSucesso) ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-
-    <?php if ($mensagemErro): ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= htmlspecialchars($mensagemErro) ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-
-    <form action="../8.controller/atendimentoController.php" method="POST">
-        
-        <?php if ($atendimento): ?>
-            <input type="hidden" name="id" value="<?= htmlspecialchars($atendimento->getId()) ?>" />
-            <input type="hidden" name="salvar_edicao" value="1" />
-        <?php else: ?>
-            <input type="hidden" name="cadastrar" value="1" />
-        <?php endif; ?>
+    <form action="resultadoProntuario.php" method="POST">
 
         <div class="mb-3">
-            <label for="doenca" class="form-label">Doença:</label>
-            <input type="text" class="form-control" id="doenca" name="doenca" value="<?= htmlspecialchars($atendimento ? $atendimento->getDoenca() : '') ?>" required />
+            <label for="data" class="form-label">Data do Atendimento</label>
+            <input type="date" class="form-control" id="data" name="data" required />
         </div>
 
         <div class="mb-3">
-            <label for="usuario_id" class="form-label">ID do Usuário:</label>
-            <input type="number" class="form-control" id="usuario_id" name="usuario_id" value="<?= htmlspecialchars($atendimento ? $atendimento->getUsuarioId() : '') ?>" required />
+            <label for="doenca" class="form-label">Selecione a Doença</label>
+            <select class="form-select" id="doenca" name="doenca" required>
+                <option value="" selected disabled>Escolha uma doença</option>
+                <option value="cancer">Câncer</option>
+                <option value="insuficiencia-cardiaca">Insuficiência Cardíaca</option>
+                <option value="doenca-pulmonar">Doença Pulmonar Obstrutiva Crônica (DPOC)</option>
+                <option value="doenca-renal">Doença Renal Crônica</option>
+                <option value="demencia">Demência / Alzheimer</option>
+                <option value="esclerose-lateral">Esclerose Lateral Amiotrófica (ELA)</option>
+                <option value="avc">Acidente Vascular Cerebral (AVC)</option>
+                <option value="cirrose">Cirrose Hepática</option>
+                <option value="fibrose-pulmonar">Fibrose Pulmonar</option>
+                <option value="parkinson">Doença de Parkinson avançada</option>
+                <option value="doenca-infecciosa">Doenças Infecciosas avançadas (ex: HIV/AIDS)</option>
+            </select>
         </div>
 
         <div class="mb-3">
-            <label for="data" class="form-label">Data:</label>
-            <input type="date" class="form-control" id="data" name="data" value="<?= htmlspecialchars($atendimento ? $atendimento->getData() : date('Y-m-d')) ?>" required />
+            <label class="form-label">Selecione os Sintomas</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="dor" id="sintomaDor" />
+                <label class="form-check-label" for="sintomaDor">Dor Crônica</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="fadiga" id="sintomaFadiga" />
+                <label class="form-check-label" for="sintomaFadiga">Fadiga</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="falta-de-ar" id="sintomaFaltaAr" />
+                <label class="form-check-label" for="sintomaFaltaAr">Falta de Ar (Dispneia)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="ansiedade" id="sintomaAnsiedade" />
+                <label class="form-check-label" for="sintomaAnsiedade">Ansiedade</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="nausea" id="sintomaNausea" />
+                <label class="form-check-label" for="sintomaNausea">Náusea</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="depressao" id="sintomaDepressao" />
+                <label class="form-check-label" for="sintomaDepressao">Depressão</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="insonia" id="sintomaInsonia" />
+                <label class="form-check-label" for="sintomaInsonia">Insônia</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="delirio" id="sintomaDelirio" />
+                <label class="form-check-label" for="sintomaDelirio">Delírio / Confusão mental</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="constipacao" id="sintomaConstipacao" />
+                <label class="form-check-label" for="sintomaConstipacao">Constipação intestinal</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="perda-apetite" id="sintomaPerdaApetite" />
+                <label class="form-check-label" for="sintomaPerdaApetite">Perda de apetite</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="disfagia" id="sintomaDisfagia" />
+                <label class="form-check-label" for="sintomaDisfagia">Disfagia (dificuldade de engolir)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="sintomas[]" value="fraqueza" id="sintomaFraqueza" />
+                <label class="form-check-label" for="sintomaFraqueza">Fraqueza muscular</label>
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label class="form-label">Sintomas:</label>
-            <?php
-            // Lista de sintomas possíveis
-            $sintomasLista = [
-                "febre" => "Febre",
-                "tosse" => "Tosse",
-                "dor-cabeca" => "Dor de cabeça",
-                "fadiga" => "Fadiga",
-                "dor-garganta" => "Dor de garganta",
-                "congestao" => "Congestão nasal",
-                "diarreia" => "Diarreia",
-                "vomito" => "Vômito",
-                "erupcao-cutanea" => "Erupção cutânea",
-                "dor-muscular" => "Dor muscular",
-                "perda-olfato" => "Perda de olfato/paladar",
-                "dificuldade-respirar" => "Dificuldade de respirar",
-                "dor-peito" => "Dor no peito",
-                "delirio" => "Delírio / Confusão mental",
-                "constipacao" => "Constipação intestinal",
-                "perda-apetite" => "Perda de apetite",
-                "disfagia" => "Disfagia (dificuldade de engolir)",
-                "fraqueza" => "Fraqueza muscular",
-            ];
-
-            // Pega os sintomas selecionados do atendimento existente (se estiver editando)
-            $sintomasSelecionados = [];
-            if ($atendimento) {
-                $sintomasDoObjeto = $atendimento->getSintomas();
-                if (is_array($sintomasDoObjeto)) {
-                    $sintomasSelecionados = $sintomasDoObjeto;
-                } else {
-                    // Se, por algum motivo, não for um array, tenta decodificar como JSON
-                    $decoded = json_decode($sintomasDoObjeto, true);
-                    $sintomasSelecionados = is_array($decoded) ? $decoded : [];
-                }
-            }
-
-            foreach ($sintomasLista as $key => $label) {
-                // Marca o checkbox se o sintoma estiver na lista do atendimento
-                $checked = in_array($key, $sintomasSelecionados) ? 'checked' : '';
-                echo "
-                <div class='form-check'>
-                    <input class='form-check-input' type='checkbox' name='sintomas[]' value='$key' id='sintoma_$key' $checked />
-                    <label class='form-check-label' for='sintoma_$key'>$label</label>
-                </div>";
-            }
-            ?>
-        </div>
-
-        <button type="submit" class="btn btn-primary"><?= $atendimento ? "Salvar Edição" : "Cadastrar Atendimento" ?></button>
+        <button type="submit" class="btn btn-primary">Cadastrar Atendimento</button>
     </form>
-
-    <a href="listarAtendimentos.php" class="btn btn-secondary mt-3">
-        <i class="bi bi-list"></i> Voltar para a Listagem
-    </a>
-
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle CDN (Popper + JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Code injected by live-server -->
+    <script>
+        // <![CDATA[  <-- For SVG support
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+        // ]]>
+    </script>
 </body>
 </html>
