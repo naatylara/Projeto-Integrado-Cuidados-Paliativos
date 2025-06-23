@@ -1,25 +1,20 @@
 <?php
 // 5.view/listarAtendimentos.php
 
-// Inclua o arquivo do DAO (que já faz require_once do model)
 include_once __DIR__ . '/../7.dao/atendimentoDao.php';
-// REMOVIDO: include __DIR__ . '/../4.model/atendimento.php'; // Esta linha é redundante se atendimentoDao.php já a inclui
 
-// Inicia a sessão para exibir mensagens (se houver)
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
 $atendimentoDao = new atendimentoDao();
-$listaAtendimentos = $atendimentoDao->read(); // Busca todos os atendimentos da API
+$listaAtendimentos = $atendimentoDao->read();
 
-// Pega e limpa as mensagens de sucesso/erro da sessão, se existirem
 $mensagemSucesso = $_SESSION['mensagem_sucesso'] ?? '';
 unset($_SESSION['mensagem_sucesso']);
 
 $mensagemErro = $_SESSION['mensagem_erro'] ?? '';
 unset($_SESSION['mensagem_erro']);
-
 ?>
 
 <!DOCTYPE html>
@@ -30,10 +25,40 @@ unset($_SESSION['mensagem_erro']);
     <title>Listar Atendimentos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .page-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #0d6efd;
+        }
+        .custom-table {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .custom-table thead {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .custom-table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .btn-action {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-action i {
+            font-size: 1rem;
+        }
+    </style>
 </head>
 <body>
+
 <div class="container my-5">
-    <h1 class="mb-4">Atendimentos Cadastrados</h1>
+    <h1 class="page-title">Atendimentos Cadastrados</h1>
 
     <?php if ($mensagemSucesso): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -59,7 +84,7 @@ unset($_SESSION['mensagem_erro']);
         </div>
     <?php else: ?>
         <div class="table-responsive">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover custom-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -80,19 +105,18 @@ unset($_SESSION['mensagem_erro']);
                             <td>
                                 <?php
                                 $sintomas = $atendimento->getSintomas();
-                                // Se os sintomas forem um array, converta para string legível
                                 if (is_array($sintomas)) {
                                     echo htmlspecialchars(implode(', ', $sintomas));
                                 } else {
-                                    echo htmlspecialchars($sintomas); // Caso já seja string (ex: JSON raw)
+                                    echo htmlspecialchars($sintomas);
                                 }
                                 ?>
                             </td>
                             <td>
-                                <a href="prontuario.php?editar=<?= htmlspecialchars($atendimento->getId()) ?>" class="btn btn-sm btn-primary me-2">
+                                <a href="prontuario.php?editar=<?= htmlspecialchars($atendimento->getId()) ?>" class="btn btn-sm btn-primary btn-action me-2">
                                     <i class="bi bi-pencil-square"></i> Editar
                                 </a>
-                                <a href="../8.controller/atendimentoController.php?excluir=<?= htmlspecialchars($atendimento->getId()) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este atendimento?');">
+                                <a href="../8.controller/atendimentoController.php?excluir=<?= htmlspecialchars($atendimento->getId()) ?>" class="btn btn-sm btn-danger btn-action" onclick="return confirm('Tem certeza que deseja excluir este atendimento?');">
                                     <i class="bi bi-trash"></i> Excluir
                                 </a>
                             </td>
