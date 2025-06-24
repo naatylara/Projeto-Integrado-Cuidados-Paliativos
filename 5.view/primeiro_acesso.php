@@ -56,6 +56,7 @@
     </script>    
 </head>
 <body>
+
      <!-- Cabeçalho -->
     <header class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top border-bottom">
         <div class="container-fluid">
@@ -84,7 +85,9 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card card-cadastro bg-white">
-                        <h3 class="text-center mb-4">Primeiro Acesso</h3>                        
+                        <h3 class="text-center mb-4">
+                        <i class="bi bi-clipboard2-plus me-2 text-primary" style="font-size: 2rem;"></i> Primeiro Acesso
+                        </h3>
                         <form action="../8.controller/usuarioController.php" method="POST"> 
                             <input type="hidden" name="id" 
                             value="<?= isset($usuario) && $usuario->getId() ? $usuario->getId() : '' ?>">
