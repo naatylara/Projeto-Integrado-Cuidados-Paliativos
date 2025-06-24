@@ -72,7 +72,7 @@ function listar(){
                 <td>{$user->getEmail()}</td>
 
                 <td>
-                    <a href='6.primeiro_acesso.php?editar={$user->getId()}'class = 'btn btn-primary'> 
+                    <a href='../5.view/6.primeiro_acesso.php?editar={$user->getId()}'class = 'btn btn-primary'> 
                 <i class='bi bi-pencil-square'></i>
                 Editar</a>
 
