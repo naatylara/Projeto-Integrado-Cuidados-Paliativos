@@ -5,18 +5,16 @@ public class usuario extends pessoa{
     private String user;
     private String senha;
     
-    public usuario() {
-    	
-    	
-    }
+	public usuario(String nomeCompleto, String dataNascimento, String cidade, String estado,
+               String cep, String rua, String numero, String complemento, String bairro,
+               int id, String email, String user, String senha) {
 
-	public usuario(int id, String email, String user, String senha) {
-		
-		this.id = id;
-		this.email = email;
-		this.user = user;
-		this.senha = senha;
-	}
+    super(nomeCompleto, dataNascimento, cidade, estado, cep, rua, numero, complemento, bairro);
+    this.id = id;
+    this.email = email;
+    this.user = user;
+    this.senha = senha;
+}
 
 	public int getId() {
 		return id;

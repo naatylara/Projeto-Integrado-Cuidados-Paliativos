@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class leituraArquivoUsuario {
     public static void main(String[] args) {
@@ -15,9 +17,20 @@ public class leituraArquivoUsuario {
                 String[] p = linha.split(",");
 
                 usuario u = new usuario(
-                    p[0], p[1], p[2], p[3], p[4], p[5], p[6],
-                    Integer.parseInt(p[7]), p[8], p[9], p[10]
-                );
+            p[0], // nomeCompleto
+            p[1], // dataNascimento
+            p[2], // cidade
+            p[3], // estado
+            p[4], // cep
+            p[5], // rua
+            p[6], // numero
+            p[7], // complemento
+            p[8], // bairro
+           Integer.parseInt(p[9]), // id
+           p[10], // email
+           p[11], // user
+           p[12]  // senha
+);
 
                 listaUsuarios.add(u); 
             }
