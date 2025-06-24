@@ -85,11 +85,11 @@ class atendimentoDao {
         
         $finalSintomas = [];
         if (is_string($sintomasDoApi)) {
-            // Se for uma string (caso a API ou dados anteriores sejam inconsistentes), decodifique
+            // Se for uma string 
             $decoded = json_decode($sintomasDoApi, true);
             $finalSintomas = is_array($decoded) ? $decoded : [];
         } elseif (is_array($sintomasDoApi)) {
-            // Se já for um array (o que é o esperado com a sua API atual), use-o diretamente
+            // Se já for um array 
             $finalSintomas = $sintomasDoApi;
         }
 
