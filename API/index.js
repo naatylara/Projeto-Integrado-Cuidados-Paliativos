@@ -25,8 +25,8 @@ function salvarAtendimentos(data) {
 function getNextAtendimentoId(data) {
   return data.length > 0 ? Math.max(...data.map(a => a.id)) + 1 : 1;
 }
-//terminei aqui
 
+//Funções auxiliares para Usuários
 function lerUsuarios() {
   if (!fs.existsSync(DATA_FILE)) return [];
   const data = fs.readFileSync(DATA_FILE, 'utf-8');
@@ -41,13 +41,13 @@ function getNextId(usuarios) {
   return usuarios.length > 0 ? Math.max(...usuarios.map(f => f.id)) + 1 : 1;
 }
 
-// Listar todos os fabricantes
+// Listar 
 app.get('/usuarios', (req, res) => {
   const usuarios = lerUsuarios();
   res.json(usuarios);
 });
 
-// Buscar fabricante por ID
+// Buscar 
 app.get('/usuarios/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const usuarios = lerUsuarios();
@@ -56,7 +56,7 @@ app.get('/usuarios/:id', (req, res) => {
   res.json(usuario);
 });
 
-// Inserir novo fabricante
+// Inserir 
 app.post('/usuarios', (req, res) => {
   const {nome, data_nascimento, cidade, estado, email, senha, cep, rua, complemento, numero, bairro, user} = req.body;
   const usuarios = lerUsuarios();
@@ -66,7 +66,7 @@ app.post('/usuarios', (req, res) => {
   res.status(201).json(novoUsuario);
 });
 
-// Editar fabricante existente
+// Editar 
 app.put('/usuarios/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const usuarios = lerUsuarios();
@@ -91,7 +91,7 @@ app.put('/usuarios/:id', (req, res) => {
   res.json(usuario);
 });
 
-// Excluir fabricante
+// Excluir 
 app.delete('/usuarios/:id', (req, res) => {
   const id = parseInt(req.params.id);
   let usuarios = lerUsuarios();
@@ -104,7 +104,7 @@ app.delete('/usuarios/:id', (req, res) => {
 });
 
 
-//Comecei a mexer aqui.
+
 // Listar todos ou por usuario_id
 app.get('/atendimentos', (req, res) => {
   const { usuario_id } = req.query;

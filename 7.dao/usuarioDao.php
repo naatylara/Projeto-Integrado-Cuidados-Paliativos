@@ -27,8 +27,8 @@ class usuarioDao{
             ]
         ];
 
-        $context = stream_context_create($options);     //stream é uma conexão onde você recebe e manda dados
-        $result = file_get_contents($url, false, $context);
+        $context = stream_context_create($options);     //aqui é onde você recebe e manda dados
+        $result = file_get_contents($url, false, $context); //requisção para a API
         return $result ? json_decode($result, true) : false;
     }
 
@@ -120,7 +120,6 @@ class usuarioDao{
     }
 
     public function excluir($id){
-//fazer validação de busca por id
         $url = "http://localhost:3000/usuarios/". urldecode(($id));
 
         $options = [
