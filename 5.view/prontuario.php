@@ -101,11 +101,14 @@ if (isset($_GET['editar'])) {
                             <?php
                             // Lista de doenças predefinida
                             $doencasLista = [
-                                "gripe" => "Gripe",
-                                "covid-19" => "COVID-19",
-                                "dengue" => "Dengue",
-                                "pneumonia" => "Pneumonia",
-                                "asma" => "Asma",
+                                "cancer" => "Câncer",
+                                "alzheimer" => "Doença de Alzheimer",
+                                "parkinson" => "Parkinson ",
+                                "esclerose" => "Esclerose Lateral Amiotrófica (ELA)",
+                                "insuficiencia" => "Insuficiência cardíaca",
+                                "dpoc" => "Doença pulmonar obstrutiva crônica (DPOC) ",
+                                "hiv" => "HIV/AIDS",                             
+
                             ];
                             $doencaAtual = $atendimento ? $atendimento->getDoenca() : '';
                             ?>
