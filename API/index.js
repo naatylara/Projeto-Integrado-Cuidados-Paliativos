@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
-app.use(express.static(path.join(__dirname, 'view'))); //adicionei isso agora
 
 const app = express();
 const DATA_FILE = path.join(__dirname, 'usuarios.json');
