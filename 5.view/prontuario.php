@@ -98,7 +98,32 @@ if (isset($_GET['editar'])) {
 
                         <div class="mb-3">
                             <label for="doenca" class="form-label">Doença:</label>
-                            <input type="text" class="form-control" id="doenca" name="doenca" value="<?= htmlspecialchars($atendimento ? $atendimento->getDoenca() : '') ?>" required />
+                            <?php
+                            // Lista de doenças predefinida
+                            $doencasLista = [
+                                "gripe" => "Gripe",
+                                "covid-19" => "COVID-19",
+                                "dengue" => "Dengue",
+                                "pneumonia" => "Pneumonia",
+                                "asma" => "Asma",
+                            ];
+                            $doencaAtual = $atendimento ? $atendimento->getDoenca() : '';
+                            ?>
+                            <select class="form-select" id="doenca" name="doenca" required>
+                                <option value="">Selecione uma doença</option>
+                                <?php foreach ($doencasLista as $key => $label): ?>
+                                    <option value="<?= $key ?>"
+                                        <?= $doencaAtual === $key ? 'selected' : '' ?>>
+                                        <?= $label ?>
+                                    </option>
+                                <?php endforeach; ?>
+
+                                <?php if ($doencaAtual && !isset($doencasLista[$doencaAtual])): ?>
+                                    <option value="<?= htmlspecialchars($doencaAtual) ?>" selected>
+                                        <?= "Outro: " . htmlspecialchars($doencaAtual) ?>
+                                    </option>
+                                <?php endif; ?>
+                            </select>
                         </div>
 
                         <div class="mb-3">
