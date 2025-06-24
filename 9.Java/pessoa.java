@@ -1,4 +1,4 @@
-public class Pessoa {
+public class pessoa {
     private String nomeCompleto;
     private String dataNascimento;
     private String cidade;
@@ -9,7 +9,7 @@ public class Pessoa {
     private String complemento;
     private String bairro;
 
-    public Pessoa(String nomeCompleto, String dataNascimento, String cidade, String estado, String cep,
+    public pessoa(String nomeCompleto, String dataNascimento, String cidade, String estado, String cep,
                   String rua, String numero, String complemento, String bairro) {
         this.nomeCompleto = nomeCompleto;
         this.dataNascimento = dataNascimento;

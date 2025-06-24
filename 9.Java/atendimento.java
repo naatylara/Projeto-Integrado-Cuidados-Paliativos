@@ -1,11 +1,11 @@
-public class Atendimento {
+public class atendimento {
     private int id;
     private String doenca;
     private int usuarioId;
     private String data;
     private String sintomas;
 
-    public Atendimento(String doenca, int usuarioId, String data, String sintomas) {
+    public atendimento(String doenca, int usuarioId, String data, String sintomas) {
         this.doenca = doenca;
         this.usuarioId = usuarioId;
         this.data = data;

@@ -120,7 +120,7 @@ class usuarioDao{
     }
 
     public function excluir($id){
-//fazer validaçãod e busca por id
+//fazer validação de busca por id
         $url = "http://localhost:3000/usuarios/". urldecode(($id));
 
         $options = [
