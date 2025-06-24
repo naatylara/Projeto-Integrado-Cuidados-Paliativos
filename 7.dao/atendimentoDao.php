@@ -6,13 +6,14 @@ class atendimentoDao {
 
     public function inserir(atendimento $atend){
         $url = "http://localhost:3000/atendimentos";
-        $dados = [
+        $dados = [ //construindo array para mandar para o json
             "doenca" => $atend->getDoenca(),
-            "usuario_id"=> $atend->getUsuarioId(), // Certifique-se que está 'usuario_id'
+            "usuario_id"=> $atend->getUsuarioId(), 
             "data" => $atend->getData(),
             "sintomas"=> json_decode($atend->getSintomas(), true), // Decodifica para array PHP antes de enviar
         ];
         
+        //criando contexto
         $options = [
             "http" => [
                 "header"  => "Content-Type: application/json\r\n",
@@ -30,8 +31,8 @@ class atendimentoDao {
             return false;
         }
 
-        $http_status = $http_response_header[0] ?? null;
-        if (strpos($http_status, '201 Created') === false) { // Verifica 201 Created para sucesso de POST
+        $http_status = $http_response_header[0] ?? null; 
+        if (strpos($http_status, '201 Created') === false) { // Verifica 201 Created 
             error_log("API de inserção retornou erro: " . $http_status . " - " . $result);
             return false;
         }
@@ -41,7 +42,7 @@ class atendimentoDao {
     public function read(){
         $url = "http://localhost:3000/atendimentos";
         $options = [
-            "http" => [
+            "http" => [ 
                 "ignore_errors" => true // Importante para pegar status de erro
             ]
         ];
@@ -102,7 +103,7 @@ class atendimentoDao {
         $dados = [
             "id" => $atend->getId(),
             "doenca" => $atend->getDoenca(),
-            "usuario_id"=> $atend->getUsuarioId(), // Certifique-se que está 'usuario_id'
+            "usuario_id"=> $atend->getUsuarioId(), 
             "data" => $atend->getData(),
             "sintomas"=> json_decode($atend->getSintomas(), true), // Decodifica para array PHP
         ];
