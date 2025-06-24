@@ -45,13 +45,15 @@ unset($_SESSION['mensagem_erro']);
         .custom-table tbody tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+        /* Container dos botões de ação */
         .btn-action {
             display: flex;
-            align-items: center;
-            gap: 5px;
+            gap: 0.5rem;
         }
-        .btn-action i {
-            font-size: 1rem;
+        .btn-action a {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
     </style>
 </head>
@@ -113,12 +115,14 @@ unset($_SESSION['mensagem_erro']);
                                 ?>
                             </td>
                             <td>
-                                <a href="prontuario.php?editar=<?= htmlspecialchars($atendimento->getId()) ?>" class="btn btn-sm btn-primary btn-action me-2">
-                                    <i class="bi bi-pencil-square"></i> Editar
-                                </a>
-                                <a href="../8.controller/atendimentoController.php?excluir=<?= htmlspecialchars($atendimento->getId()) ?>" class="btn btn-sm btn-danger btn-action" onclick="return confirm('Tem certeza que deseja excluir este atendimento?');">
-                                    <i class="bi bi-trash"></i> Excluir
-                                </a>
+                                <div class="btn-action">
+                                    <a href="prontuario.php?editar=<?= htmlspecialchars($atendimento->getId()) ?>" class="btn btn-sm btn-primary">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </a>
+                                    <a href="../8.controller/atendimentoController.php?excluir=<?= htmlspecialchars($atendimento->getId()) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza que deseja excluir este atendimento?');">
+                                        <i class="bi bi-trash"></i> Excluir
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
