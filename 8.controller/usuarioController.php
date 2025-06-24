@@ -78,7 +78,7 @@ function listar(){
 
                     <a href='../8.controller/usuarioController.php?excluir={$user->getId()}' class='btn btn-danger'> 
                 <i class='bi bi-trash'></i>
-                Exluir</a>
+                Excluir</a>
 
                 </td>
             </tr>";
