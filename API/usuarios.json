@@ -73,5 +73,50 @@
     "numero": "35",
     "bairro": "Jardim Agari",
     "user": "brunin10"
+  },
+  {
+    "id": 6,
+    "nome": "Caio Alves Galassi ",
+    "data_nascimento": "1998-06-10",
+    "cidade": "Londrina",
+    "estado": "pr",
+    "email": "caio@gmail.com",
+    "senha": "123",
+    "cep": "86025660",
+    "rua": "Rua Eduardo Lunardelli",
+    "complemento": "",
+    "numero": "12",
+    "bairro": "Jd Alcantara",
+    "user": "caiao"
+  },
+  {
+    "id": 7,
+    "nome": "Bruno (editado)",
+    "data_nascimento": "2025-06-25",
+    "cidade": "Londrina",
+    "estado": "PR",
+    "email": "calvin@gmail",
+    "senha": "123",
+    "cep": "86025670",
+    "rua": "Rua Eduardo Lunardelli",
+    "complemento": "eqeq",
+    "numero": "60",
+    "bairro": "dada",
+    "user": "fujiada"
+  },
+  {
+    "id": 8,
+    "nome": "Alex",
+    "data_nascimento": "1995-10-24",
+    "cidade": "Londrina",
+    "estado": "PR",
+    "email": "alex@gmail.com",
+    "senha": "123",
+    "cep": "86047340",
+    "rua": "Rua Eduardo Lunardelli",
+    "complemento": "Casa",
+    "numero": "158",
+    "bairro": "Parque Residencial Alcântara",
+    "user": "alex10"
   }
 ]
