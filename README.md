@@ -4,6 +4,7 @@ Este projeto tem como objetivo desenvolver uma solução digital voltada para cu
 O foco é fornecer informações essenciais para pacientes e familiares, ajudando a identificar quando é necessário buscar atendimento médico, especialmente em situações de agravamento da condição do paciente.
 
 Fase 1 – Site Informativo
+
 Na fase inicial, o projeto foi concebido como um site, com os seguintes objetivos principais:
 Disponibilizar conteúdos explicativos sobre cuidados paliativos;
 Criar um guia com sinais de alerta para busca de atendimento médico;
@@ -11,6 +12,7 @@ Utilizar linguagem clara, acessível e inclusiva;
 Oferecer uma interface simples e intuitiva para facilitar a navegação.
 
 Fase 2 – Aplicativo Mobile
+
 Após a conclusão da primeira fase, identificou-se a oportunidade de ampliar o alcance e a praticidade da solução, transformando o projeto em um aplicativo mobile.
 Os principais diferenciais da versão em app serão:
 Acesso rápido às informações em qualquer lugar;
